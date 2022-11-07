@@ -9,6 +9,7 @@
 
 <body>
 	<h1>Hello World</h1>
+	<p>coba ini</p>
 
 </body>
 <!-- bang carane nganggo git gimana -->

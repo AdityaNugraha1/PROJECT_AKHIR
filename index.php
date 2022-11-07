@@ -12,4 +12,6 @@
 
 </body>
 <!-- bang carane nganggo git gimana -->
+<!-- bedane commit ro push apa bang
+carane bikin branch gmn -->
 </html>

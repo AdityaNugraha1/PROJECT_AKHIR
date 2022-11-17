@@ -19,8 +19,7 @@ height: 100%;
 }
 
 .carousel-item{
-    height: 25rem;
-    background:#777;
+    height: 30rem;
     color: white;
     position: relative;
     background-position: center;

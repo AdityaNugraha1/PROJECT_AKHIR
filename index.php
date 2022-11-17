@@ -10,44 +10,44 @@
   <link rel="stylesheet" href="style/style.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<nav class="navbar fixed-top navbar-expand-lg background-primary" style="height:80px;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="index.php" style="font-weight:bolder; color:#00A445;">
-      <img src="asset/logo putih.png" alt="logo" style="height: 40px;"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:25px;">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" style="color: #00A445;">
-          <a class="nav-link active text-white" aria-current="page" href="bootsrap.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="#form">Form</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            About
-          </a>
-          <ul class="dropdown-menu" style="font-size:25px;">
-            <li><a class="dropdown-item" href="#menu">Menu</a></li>
-            <li><a class="dropdown-item" href="#address">Address</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li><a class="dropdown-item" href="#contact">Contact</a></li>
-          </ul>
-        </li>
-      </ul>
-      <a class="d-flex" href="login.php">
-        <button type="button" class="btn btn-outline-light btn-lg">Login</button>
-      </a>
-    </div>
-  </div>
-</nav>
-<br>
 
 <body>
+  <nav class="navbar fixed-top navbar-expand-lg background-primary" style="height:80px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.php" style="font-weight:bolder; color:#00A445;">
+        <img src="asset/logo putih.png" alt="logo" style="height: 40px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:25px;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" style="color: #00A445;">
+            <a class="nav-link active text-white" aria-current="page" href="bootsrap.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="#form">Form</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About
+            </a>
+            <ul class="dropdown-menu" style="font-size:25px;">
+              <li><a class="dropdown-item" href="#menu">Menu</a></li>
+              <li><a class="dropdown-item" href="#address">Address</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#contact">Contact</a></li>
+            </ul>
+          </li>
+        </ul>
+        <a class="d-flex" href="login.php">
+          <button type="button" class="btn btn-outline-light btn-lg">Login</button>
+        </a>
+      </div>
+    </div>
+  </nav>
+
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -86,10 +86,8 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-  <br>
 
-  <body class="p-3 m-0 border-0">
-
+  <div class="p-3 m-0 border-0">
     <div class="container text-center">
       <div class="row">
         <div class="col">
@@ -142,12 +140,9 @@
         </div>
       </div>
     </div>
+  </div>
 
-  </body>
-  <br>
-
-  <body class="p-3 m-0 border-0">
-
+  <div class="p-3 m-0 border-0">
     <div class="container text-center">
       <div class="row">
         <div class="col">
@@ -200,9 +195,13 @@
         </div>
       </div>
     </div>
+  </div>
 
-  </body>
-  <br>
+  <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 mt-5 background-primary">
+    <div class="text-white mb-3 mb-md-0">
+      Copyright © 2022. All rights reserved.
+    </div>
+  </div>
 </body>
 
 

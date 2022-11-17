@@ -8,6 +8,7 @@ background: #eee;
 .h-custom {
 height: calc(100% - 73px);
 }
+
 @media (max-width: 450px) {
 .h-custom {
 height: 100%;
@@ -18,6 +19,10 @@ height: 100%;
     background: #00A445;
 }
 
+.color-primary {
+    color: #00A445;
+}
+
 .carousel-item{
     height: 30rem;
     color: white;
@@ -26,33 +31,6 @@ height: 100%;
     background-size: cover;
 }
 
-<<<<<<< HEAD
-
 body {
     font-family: 'Montserrat', sans-serif;
 }
-
-=======
-.gradient-custom {
-    /* fallback for old browsers */
-    background: #a18cd1;
-
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: -webkit-linear-gradient(
-      45deg,
-      rgba(29, 236, 197, 0.6),
-      rgba(91, 14, 214, 0.6) 100%
-    );
-
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: linear-gradient(
-      45deg,
-      rgba(29, 236, 197, 0.6),
-      rgba(91, 14, 214, 0.6) 100%
-    );
-  }
-
-.bg-image{
-    background-image: ;
-}
->>>>>>> 6bc5779d609ce6d8187a7d5b226427c49e145c18

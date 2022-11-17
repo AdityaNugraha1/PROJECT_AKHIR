@@ -96,9 +96,9 @@
         <div class="row">
           <div class="col">
             <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="img/facemask.png" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Face Mask</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Add To Cart</a>
               </div>
@@ -106,9 +106,9 @@
           </div>
           <div class="col">
             <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="img/freezer.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Freezer</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Add To Cart</a>
               </div>
@@ -116,9 +116,9 @@
           </div>
           <div class="col">
             <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="img/autoclave.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Auto Clave</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Add To Cart</a>
               </div>
@@ -126,9 +126,9 @@
           </div>
           <div class="col">
             <div class="card" style="width: 18rem;">
-              <img src="..." class="card-img-top" alt="...">
+              <img src="img/automateddefibrillator.jpg" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Automated Defibrillator.</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 <a href="#" class="btn btn-primary">Add To Cart</a>
               </div>
@@ -144,9 +144,9 @@
       <div class="container text-center">
         <div class="row">
           <div class="col"><div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="img/tensi.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Blood Pressure Monitor</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <a href="#" class="btn btn-primary">Add To Cart</a>
             </div>
@@ -154,9 +154,9 @@
         </div>
         <div class="col">
           <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="img/suntikan.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Syringe</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <a href="#" class="btn btn-primary">Add To Cart</a>
             </div>
@@ -164,19 +164,19 @@
         </div>
         <div class="col">
           <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="img/oksigen.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Oxygen Tube</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <a href="#" class="btn btn-primary">Add To Cart</a>
             </div>
           </div>
         </div>
         <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+          <div class="card" style="width: 18rem; ">
+            <img src="img/blood.jpg" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title">Blood Test Kits</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               <a href="#" class="btn btn-primary">Add To Cart</a>
             </div>
@@ -187,54 +187,6 @@
 
   </body>
   <br>
-  <body class="p-3 m-0 border-0">
-
-    <div class="container text-center">
-      <div class="row">
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </body>
 </body>
 
 

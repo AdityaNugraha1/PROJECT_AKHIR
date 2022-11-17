@@ -35,7 +35,7 @@
 
                         <div class="text-center text-lg-start pt-2">
                             <button type="button" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!" class="link-danger">Register</a></p>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!" class="stretched-link">Register</a></p>
                         </div>
                     </form>
 
@@ -44,7 +44,7 @@
         </div>
         <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 background-primary">
             <div class="text-white mb-3 mb-md-0">
-                Copyright © 2020. All rights reserved.
+                Copyright © 2022. All rights reserved.
             </div>
         </div>
     </section>

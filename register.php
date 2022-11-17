@@ -18,13 +18,13 @@
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                     <div class="mx-auto d-block pb-5">
-                        <h1 class="fw-bolder color-primary" style="font-size: 50px;">Sign UP</h1>
+                        <h1 class="row justify-content-center fw-bolder color-primary" style="font-size: 50px;">Sign UP</h1>
                     </div>
                     <form>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form3Example3">username</label>
-                            <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Enter username" />
+                            <label class="form-label" for="form3Example3">Username</label>
+                            <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Enter Username" />
                         </div>
 
                         <!-- Password input -->

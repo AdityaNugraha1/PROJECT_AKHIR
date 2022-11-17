@@ -12,6 +12,7 @@
    <nav class="navbar fixed-top navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php" style="font-weight:bolder; color:#3cad51;">
+                <img src="asset/logo.png" alt="Logo" width="200" height="24" class="d-inline-block align-text-top">
                 Toko Medical</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

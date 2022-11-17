@@ -16,6 +16,7 @@
                 <div class="col-1">
                 </div>
 
+
                 <div class="col-7">
                     <h3>Keranjang</h3>
                     <div class="form-check">
@@ -24,6 +25,44 @@
                             Pilih Semua
                         </label>
                     </div>
+
+                    <div class="card">
+                        <div class="card-body">
+                            <input class="form-check-input" type="checkbox" id="item1">
+                            <label class="form-check-label" for="item1">
+                                <h5>Suntik</h5>
+                                <div class="d-flex justify-content-between">
+                                    <img src="img/suntikan.png" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- <div class="card mb-3">
+                  <div class="card-body">
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex flex-row align-items-center">
+                        <div>
+                          <img
+                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
+                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                        </div>
+                        <div class="ms-3">
+                          <h5>Iphone 11 pro</h5>
+                          <p class="small mb-0">256GB, Navy Blue</p>
+                        </div>
+                      </div>
+                      <div class="d-flex flex-row align-items-center">
+                        <div style="width: 50px;">
+                          <h5 class="fw-normal mb-0">2</h5>
+                        </div>
+                        <div style="width: 80px;">
+                          <h5 class="mb-0">$900</h5>
+                        </div>
+                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
                 </div>
 
                 <!-- Kolom kanan Berisi total -->
@@ -44,7 +83,7 @@
                                     <div>Rp67.000</div>
                                 </div>
                             </h5>
-                            <a href="#" class="btn btn-primary d-grid gap-2">Beli (n)</a>
+                            <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>
                         </div>
                     </div>
                 </div>

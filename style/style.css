@@ -17,3 +17,12 @@ height: 100%;
 .background-primary {
     background: #00A445;
 }
+
+.carousel-item{
+    height: 25rem;
+    background:#777;
+    color: white;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+}

@@ -10,12 +10,39 @@
 </head>
 
 <body>
+    <nav class="navbar fixed-top navbar-expand-lg background-primary" style="height:60px;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.php" style="font-weight:bolder; color:#00A445;">
+        <img src="asset/logo putih.png" alt="logo" style="height: 25px; margin-top: -7px; padding-left: 4px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:20px;">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" style="color: #00A445;">
+            <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="#produk">Produk</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="keranjang.php">Keranjang</a>
+          </li>
+        </ul>
+        <a class="d-flex" href="login.php" style="text-decoration: none;">
+          <button type="button" class="btn btn-outline-light">Login</button>
+        </a>
+      </div>
+    </div>
+  </nav>
     <section class="vh-100">
-        <div class="container text-start">
+
+
+    
+        <div class="container text-start pt-5">
             <div class="row pt-5">
                 <div class="col-1">
                 </div>
-
 
                 <div class="col-7">
                     <h3>Keranjang</h3>
@@ -25,69 +52,136 @@
                             Pilih Semua
                         </label>
                     </div>
-
                     <div class="card">
                         <div class="card-body">
-                            <input class="form-check-input" type="checkbox" id="item1">
-                            <label class="form-check-label" for="item1">
-                                <h5>Suntik</h5>
-                                <div class="d-flex justify-content-between">
-                                    <img src="img/suntikan.png" class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+                            <div class="card border-light">
+                                <div class="card-body">
+                                    <input class="form-check-input" type="checkbox" id="item1">
+                                    <label class="form-check-label" for="item1">
+                                        <h5>Suntik</h5>
+                                    </label>
+                                    <div class="d-flex justify-content-start ps-3" style="height:100px;">
+                                        <img src="img/blood.jpg" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
+                                        <p class="ps-4">Suntik Keren tes tes placeholder placeholder placeholder placeholder placeholder placeholder</p>
+                                        <h5>Rp67.000</h5>
+                                    </div>
+                                    <div class="d-flex justify-content-between ps-3">
+                                        <a data-bs-toggle="collapse" href="#catatan" role="button" aria-expanded="false" aria-controls="catatan">
+                                            Tulis Catatan
+                                        </a>
+                                        tes
+                                    </div>
+                                    <div class="collapse" id="catatan" style="width: 130px;">
+                                        <input class="card card-body" style="height: 5px;" type="text">
+                                    </div>
                                 </div>
-                            </label>
-                        </div>
-                    </div>
-                    <!-- <div class="card mb-3">
-                  <div class="card-body">
-                    <div class="d-flex justify-content-between">
-                      <div class="d-flex flex-row align-items-center">
-                        <div>
-                          <img
-                            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img1.webp"
-                            class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-                        </div>
-                        <div class="ms-3">
-                          <h5>Iphone 11 pro</h5>
-                          <p class="small mb-0">256GB, Navy Blue</p>
-                        </div>
-                      </div>
-                      <div class="d-flex flex-row align-items-center">
-                        <div style="width: 50px;">
-                          <h5 class="fw-normal mb-0">2</h5>
-                        </div>
-                        <div style="width: 80px;">
-                          <h5 class="mb-0">$900</h5>
-                        </div>
-                        <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-                      </div>
-                    </div>
-                  </div>
-                </div> -->
-                </div>
-
-                <!-- Kolom kanan Berisi total -->
-                <div class="col-4 fixed-top offset-sm-8 pt-5">
-                    <div class="card w-75">
-                        <div class="card-body">
-                            <h5 class="card-title">Ringkasan Belanja</h5>
-                            <p class="card-text">
-                            <div class="d-flex justify-content-between">
-                                <div>Total Harga (n barang)</div>
-                                <div>Rp67.000</div>
                             </div>
-                            </p>
-                            <hr>
-                            <h5 class="card-text pb-2">
+                            <!-- ganti barang -->
+                            <div class="card border-light">
+                                <div class="card-body">
+                                    <input class="form-check-input" type="checkbox" id="item1">
+                                    <label class="form-check-label" for="item1">
+                                        <h5>Suntik</h5>
+                                    </label>
+                                    
+                                    <div class="d-flex justify-content-start ps-3" style="height:100px;">
+                                        <img src="img/blood.jpg" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
+                                        <p class="ps-4">Suntik Keren tes tes placeholder  placeholder placeholder</p>
+                                        <h5>Rp67.000</h5>
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between ps-3">
+                                        <a data-bs-toggle="collapse" href="#catatan" role="button" aria-expanded="false" aria-controls="catatan">
+                                            Tulis Catatan
+                                        </a>
+                                        tes
+                                    </div>
+                                    <div class="collapse" id="catatan" style="width: 130px;">
+                                        <input class="card card-body" style="height: 5px;" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ganti barang -->
+                            <div class="card border-light">
+                                <div class="card-body">
+                                    <input class="form-check-input" type="checkbox" id="item1">
+                                    <label class="form-check-label" for="item1">
+                                        <h5>Suntik</h5>
+                                    </label>
+                                    
+                                    <div class="d-flex justify-content-start ps-3" style="height:100px;">
+                                        <img src="img/blood.jpg" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
+                                        <p class="ps-4">Suntik Keren tes tes placeholder  placeholder placeholder</p>
+                                        <h5>Rp67.000</h5>
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between ps-3">
+                                        <a data-bs-toggle="collapse" href="#catatan" role="button" aria-expanded="false" aria-controls="catatan">
+                                            Tulis Catatan
+                                        </a>
+                                        tes
+                                    </div>
+                                    <div class="collapse" id="catatan" style="width: 130px;">
+                                        <input class="card card-body" style="height: 5px;" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ganti barang -->
+                            <div class="card border-light">
+                                <div class="card-body">
+                                    <input class="form-check-input" type="checkbox" id="item1">
+                                    <label class="form-check-label" for="item1">
+                                        <h5>Suntik</h5>
+                                    </label>
+                                    
+                                    <div class="d-flex justify-content-start ps-3" style="height:100px;">
+                                        <img src="img/blood.jpg" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
+                                        <p class="ps-4">Suntik Keren tes tes placeholder  placeholder placeholder</p>
+                                        <h5>Rp67.000</h5>
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-between ps-3">
+                                        <a data-bs-toggle="collapse" href="#catatan" role="button" aria-expanded="false" aria-controls="catatan">
+                                            Tulis Catatan
+                                        </a>
+                                        tes
+                                    </div>
+                                    <div class="collapse" id="catatan" style="width: 130px;">
+                                        <input class="card card-body" style="height: 5px;" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kolom kanan Berisi total -->
+                    <div class="col-4 fixed-top offset-8 my-5 py-5">
+                        <div class="card w-75">
+                            <div class="card-body">
+                                <h5 class="card-title">Ringkasan Belanja</h5>
+                                <p class="card-text">
                                 <div class="d-flex justify-content-between">
-                                    <div>Total Harga</div>
+                                    <div>Total Harga (n barang)</div>
                                     <div>Rp67.000</div>
                                 </div>
-                            </h5>
-                            <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>
+                                </p>
+                                <hr>
+                                <h5 class="card-text pb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>Total Harga</div>
+                                        <div>Rp67.000</div>
+                                    </div>
+                                </h5>
+                                <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>

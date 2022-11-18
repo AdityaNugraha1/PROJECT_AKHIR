@@ -12,14 +12,14 @@
 </head>
 
 <body>
-  <nav class="navbar fixed-top navbar-expand-lg background-primary" style="height:80px;">
+  <nav class="navbar fixed-top navbar-expand-lg background-primary" style="height:60px;">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.php" style="font-weight:bolder; color:#00A445;">
-        <img src="asset/logo putih.png" alt="logo" style="height: 40px;"></a>
+        <img src="asset/logo putih.png" alt="logo" style="height: 25px;"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:25px;">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:20px;">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item" style="color: #00A445;">
             <a class="nav-link active text-white" aria-current="page" href="bootsrap.html">Home</a>
@@ -31,7 +31,7 @@
             <a class="nav-link dropdown-toggle text-white " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               About
             </a>
-            <ul class="dropdown-menu" style="font-size:25px;">
+            <ul class="dropdown-menu" style="font-size:20px;">
               <li><a class="dropdown-item" href="#menu">Menu</a></li>
               <li><a class="dropdown-item" href="#address">Address</a></li>
               <li>
@@ -42,7 +42,7 @@
           </li>
         </ul>
         <a class="d-flex" href="login.php">
-          <button type="button" class="btn btn-outline-light btn-lg">Login</button>
+          <button type="button" class="btn btn-outline-light">Login</button>
         </a>
       </div>
     </div>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 18, 2022 at 05:05 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: Nov 18, 2022 at 06:56 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -67,8 +67,20 @@ CREATE TABLE `orderstatus` (
 CREATE TABLE `product` (
   `productid` int(11) NOT NULL,
   `name` varchar(200) NOT NULL,
-  `price` int(10) NOT NULL
+  `price` int(10) NOT NULL,
+  `foto` text NOT NULL,
+  `penjelasan` varchar(105) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`productid`, `name`, `price`, `foto`, `penjelasan`) VALUES
+(3, 'Auto Clave', 4000000, 'autoclave.jpg', 'Autoclave adalah salah satu alat laboratorium yang digunakan untuk mensterilkan alat-alat laboratorium.'),
+(4, 'Automated Defibrillator', 2000000, 'automateddefibrillator.jpg', 'AED sendiri merupakan sebuah alat medis yang dapat menganalisis irama jantung secara otomatis'),
+(5, 'Blood Test Kit', 20000, 'blood.jpg', 'Untuk mengambil darah pada jari untuk pemeriksaan di laboratorium atau alat test darah.'),
+(6, 'Oxygen Face Mask', 50000, 'facemask.png', 'Alat medis yang menyediakan metode untuk mentransfer gas pernafasan oksigen dari tangki penyimpanan ke pa');
 
 -- --------------------------------------------------------
 
@@ -147,7 +159,7 @@ ALTER TABLE `orderstatus`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

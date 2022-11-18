@@ -15,33 +15,23 @@
   <nav class="navbar fixed-top navbar-expand-lg background-primary" style="height:60px;">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.php" style="font-weight:bolder; color:#00A445;">
-        <img src="asset/logo putih.png" alt="logo" style="height: 25px;"></a>
+        <img src="asset/logo putih.png" alt="logo" style="height: 25px; margin-top: -7px; padding-left: 4px;"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:20px;">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item" style="color: #00A445;">
-            <a class="nav-link active text-white" aria-current="page" href="bootsrap.html">Home</a>
+            <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white " href="#form">Form</a>
+            <a class="nav-link text-white " href="#produk">Produk</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              About
-            </a>
-            <ul class="dropdown-menu" style="font-size:20px;">
-              <li><a class="dropdown-item" href="#menu">Menu</a></li>
-              <li><a class="dropdown-item" href="#address">Address</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#contact">Contact</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="keranjang.php">Keranjang</a>
           </li>
         </ul>
-        <a class="d-flex" href="login.php">
+        <a class="d-flex" href="login.php" style="text-decoration: none;">
           <button type="button" class="btn btn-outline-light">Login</button>
         </a>
       </div>
@@ -86,7 +76,7 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
-
+<div id="produk">
   <div class="p-3 m-0 border-0">
     <div class="container text-center">
       <div class="row">
@@ -98,7 +88,7 @@
             <div class="card-body">
               <h5 class="card-title">Face Mask</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
             </div>
           </div>
         </div>
@@ -110,7 +100,7 @@
             <div class="card-body">
               <h5 class="card-title">Freezer</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
             </div>
           </div>
         </div>
@@ -122,7 +112,7 @@
             <div class="card-body">
               <h5 class="card-title">Auto Clave</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
             </div>
           </div>
         </div>
@@ -134,7 +124,7 @@
             <div class="card-body">
               <h5 class="card-title">Automated Defibrillator.</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
             </div>
           </div>
         </div>
@@ -153,7 +143,7 @@
             <div class="card-body">
               <h5 class="card-title">Blood Pressure Monitor</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
             </div>
           </div>
         </div>
@@ -165,7 +155,7 @@
             <div class="card-body">
               <h5 class="card-title">Syringe</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
             </div>
           </div>
         </div>
@@ -177,7 +167,7 @@
             <div class="card-body">
               <h5 class="card-title">Oxygen Tube</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
             </div>
           </div>
         </div>
@@ -189,13 +179,40 @@
             <div class="card-body">
               <h5 class="card-title">Blood Test Kits</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Add To Cart</a>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <br>
+          <div class="card" style="width: 18rem; ">
+            <div class="m-2 p-1" style="height:270px;">
+              <img src="img/blood.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Blood Test Kits</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <br>
+          <div class="card" style="width: 18rem; ">
+            <div class="m-2 p-1" style="height:270px;">
+              <img src="img/blood.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Blood Test Kits</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
   <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 mt-5 background-primary">
     <div class="text-white mb-3 mb-md-0">

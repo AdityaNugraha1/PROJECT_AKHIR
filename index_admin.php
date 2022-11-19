@@ -86,7 +86,6 @@ if (empty($_SESSION['username'])) {
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div id="produk">
         <div class="p-3 m-0 border-0">
             <div class="container text-center">
                 <div class="row">
@@ -108,11 +107,11 @@ if (empty($_SESSION['username'])) {
                                     <p class="card-text"><?= $data['penjelasan']; ?></p>
                                     <a href=index_admin_delete.php?productid=<?php echo $data['productid'];?>>
                                     <button type="button" class="btn btn-primary pt-1 pb-1 mb-2" style="background-color: #00A445; width: 80%;">
-                                        Hapus Barang
+                                        Hapus Keranjang
                                     </button></a>
                                     <a href=index_admin_edit.php>
                                     <button type="button" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
-                                        Edit Barang
+                                        Edit Keranjang
                                     </button></a>
 
 

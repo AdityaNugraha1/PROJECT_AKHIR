@@ -5,7 +5,7 @@ include 'koneksi.php';
 	$name 		= $_POST['name'];
 	$price 		= $_POST['price'];
 	$penjelasan = $_POST['penjelasan'];
-	$productid	= "";
+	$productid	= $_POST['productid'];
 	move_uploaded_file($file_tmp, 'img/'.$foto);
 
 	

@@ -84,59 +84,59 @@ if (empty($_SESSION['username'])) {
         </button>
     </div>
     <div id="produk">
-    <form method="POST" action="index_login_proses.php">
-        <div class="p-3 m-0 border-0">
-            <div class="container text-center">
-                <div class="row">
-                    <?php
-                    include('koneksi.php');
+        <form method="POST" action="index_login_proses.php">
+            <div class="p-3 m-0 border-0">
+                <div class="container text-center">
+                    <div class="row">
+                        <?php
+                        include('koneksi.php');
 
-                    $sql   = "SELECT * FROM product";
-                    $query  = mysqli_query($connect, $sql);
-                    while ($data = mysqli_fetch_array($query)) {
-                    ?>
-                        <div class="col">
-                            <div class="card" style="width: 18rem;">
-                                <div class="m-2 p-1" style="height:270px;">
-                                    <img src="img/<?php echo $data['foto']; ?>" class="card-img-top">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $data['name']; ?></h5>
-                                    <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
-                                    <p class="card-text"><?= $data['penjelasan']; ?></p>
-                                    <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1<?= $data['productid']; ?>" style="background-color: #00A445;">
-                                                Masukkan Keranjang
-                                            </button>
-                                            <div class="modal fade" id="staticBackdrop1<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Masukkan Pesanan</h1>
-                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <input type="hidden" value="<?= $data['productid']; ?>" name="productid">
-                                                            Jumlah barang
-                                                            <input type="number" name ="quantity" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
-                                                            <hr>
-                                                            Tulis Catatan
-                                                            <input class="card card-body" style="height: 5px; width: 100%" type="text" name="catatanorder">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                            <button type="submit" class="btn btn-primary " style="background-color: #00A445;">Submit</button>
-                                                        </div>
+                        $sql   = "SELECT * FROM product";
+                        $query  = mysqli_query($connect, $sql);
+                        while ($data = mysqli_fetch_array($query)) {
+                        ?>
+                            <div class="col">
+                                <div class="card" style="width: 18rem;">
+                                    <div class="m-2 p-1" style="height:270px;">
+                                        <img src="img/<?php echo $data['foto']; ?>" class="card-img-top">
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?= $data['name']; ?></h5>
+                                        <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
+                                        <p class="card-text"><?= $data['penjelasan']; ?></p>
+                                        <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['productid']; ?>" style="background-color: #00A445;">
+                                            Masukkan Keranjang
+                                        </button>
+                                        <div class="modal fade" id="staticBackdrop<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Masukkan Pesanan</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="hidden" value="<?= $data['productid']; ?>" name="productid">
+                                                        Jumlah barang
+                                                        <input type="number" name="quantity" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
+                                                        <hr>
+                                                        Tulis Catatan
+                                                        <input class="card card-body" style="height: 5px; width: 100%" type="text" name="catatanorder">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-primary " style="background-color: #00A445;">Submit</button>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php } ?>
+                        <?php } ?>
+                    </div>
                 </div>
             </div>
-        </div>
-         </form>
+        </form>
     </div>
 
     <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 mt-5 background-primary">

@@ -148,7 +148,11 @@ if (empty($_SESSION['username'])) {
                                                 <img src="img/<?= $data['foto'] ?>" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
                                                 <p class="ps-4"><?= $data['penjelasan'] ?></p>
                                             </div>
+                                            <div class="d-flex justify-content-between">
                                             <h5>Rp<?= $data['price'] ?> x <?= $data['quantity'] ?></h5>
+                                            <h5>Rp<?= $data['total_harga'] ?></h5>
+                                            </div>
+                                            
                                         </div>
 
                                         <div class="d-flex ps-3 justify-content-end">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 02:57 PM
+-- Generation Time: Nov 19, 2022 at 03:56 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -37,6 +37,72 @@ CREATE TABLE `keranjang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data for table `keranjang`
+--
+
+INSERT INTO `keranjang` (`keranjangid`, `username`, `total_harga`, `productid`, `quantity`, `catatanorder`) VALUES
+(1, 'andra', 8000000, 1, 2, 'bang');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderstatus`
+--
+
+CREATE TABLE `orderstatus` (
+  `orderstatusid` int(11) NOT NULL,
+  `keranjangid` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `productid` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `price` int(10) NOT NULL,
+  `foto` text NOT NULL,
+  `penjelasan` varchar(105) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`productid`, `name`, `price`, `foto`, `penjelasan`) VALUES
+(1, 'Auto Clave', 4000000, 'autoclave.jpg', 'Autoclave adalah salah satu alat laboratorium yang digunakan untuk mensterilkan alat-alat laboratorium se'),
+(2, 'Automated Defibrillator', 2000000, 'automateddefibrillator.jpg', 'AED sendiri merupakan sebuah alat medis yang dapat menganalisis irama jantung secara otomatis dan memberi');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `telp` int(20) NOT NULL,
+  `alamat` text NOT NULL,
+  `level` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `telp`, `alamat`, `level`) VALUES
+('adit', 'adit', 2147483647, 'sfdgsfgadfgdfgadfgafdgafg', ''),
+('admin', 'admin', 812345678, 'wates, kulon progo', 'admin'),
+('aji', 'aji', 2147483647, 'assadadsasda', 'admin'),
+('andra', '123', 123, '123', ''),
+('user', 'user', 82131414, 'jepara, jawa tengah', '');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -49,6 +115,25 @@ ALTER TABLE `keranjang`
   ADD KEY `productid` (`productid`);
 
 --
+-- Indexes for table `orderstatus`
+--
+ALTER TABLE `orderstatus`
+  ADD PRIMARY KEY (`orderstatusid`),
+  ADD KEY `orderstatus_ibfk_1` (`keranjangid`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`productid`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -56,7 +141,19 @@ ALTER TABLE `keranjang`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `keranjangid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `keranjangid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `orderstatus`
+--
+ALTER TABLE `orderstatus`
+  MODIFY `orderstatusid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -68,6 +165,12 @@ ALTER TABLE `keranjang`
 ALTER TABLE `keranjang`
   ADD CONSTRAINT `keranjang_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
   ADD CONSTRAINT `keranjang_ibfk_3` FOREIGN KEY (`productid`) REFERENCES `product` (`productid`);
+
+--
+-- Constraints for table `orderstatus`
+--
+ALTER TABLE `orderstatus`
+  ADD CONSTRAINT `orderstatus_ibfk_1` FOREIGN KEY (`keranjangid`) REFERENCES `keranjang` (`keranjangid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

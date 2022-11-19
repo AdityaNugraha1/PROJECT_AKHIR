@@ -84,7 +84,7 @@ if (empty($_SESSION['username'])) {
         </button>
     </div>
     <div id="produk">
-    <form method="POST" action="index_login_proses">
+    <form method="POST" action="index_login_proses.php">
         <div class="p-3 m-0 border-0">
             <div class="container text-center">
                 <div class="row">
@@ -112,7 +112,7 @@ if (empty($_SESSION['username'])) {
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Pesanan</h1>
+                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Masukkan Pesanan</h1>
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
@@ -125,7 +125,7 @@ if (empty($_SESSION['username'])) {
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                            <button type="button" class="btn btn-primary " style="background-color: #00A445;">Edit</button>
+                                                            <button type="button" class="btn btn-primary " style="background-color: #00A445;">Submit</button>
                                                         </div>
                                                     </div>
                                                 </div>

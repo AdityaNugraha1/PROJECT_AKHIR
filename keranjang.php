@@ -11,34 +11,31 @@
 
 <body>
     <nav class="navbar fixed-top navbar-expand-lg background-primary" style="height:60px;">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.php" style="font-weight:bolder; color:#00A445;">
-        <img src="asset/logo putih.png" alt="logo" style="height: 25px; margin-top: -7px; padding-left: 4px;"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:20px;">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item" style="color: #00A445;">
-            <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white " href="#produk">Produk</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white " href="keranjang.php">Keranjang</a>
-          </li>
-        </ul>
-        <a class="d-flex" href="login.php" style="text-decoration: none;">
-          <button type="button" class="btn btn-outline-light">Login</button>
-        </a>
-      </div>
-    </div>
-  </nav>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php" style="font-weight:bolder; color:#00A445;">
+                <img src="asset/logo putih.png" alt="logo" style="height: 25px; margin-top: -7px; padding-left: 4px;"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:20px;">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item" style="color: #00A445;">
+                        <a class="nav-link text-white" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white " href="#produk">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" aria-current="page" href="keranjang.php">Keranjang</a>
+                    </li>
+                </ul>
+                <a class="d-flex" href="login.php" style="text-decoration: none;">
+                    <button type="button" class="btn btn-outline-light">Login</button>
+                </a>
+            </div>
+        </div>
+    </nav>
     <section class="vh-100">
-
-
-    
         <div class="container text-start pt-5">
             <div class="row pt-5">
                 <div class="col-1">
@@ -54,24 +51,36 @@
                     </div>
                     <div class="card">
                         <div class="card-body">
+                            <!-- ganti barang -->
                             <div class="card border-light">
                                 <div class="card-body">
                                     <input class="form-check-input" type="checkbox" id="item1">
                                     <label class="form-check-label" for="item1">
                                         <h5>Suntik</h5>
                                     </label>
-                                    <div class="d-flex justify-content-start ps-3" style="height:100px;">
-                                        <img src="img/blood.jpg" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
-                                        <p class="ps-4">Suntik Keren tes tes placeholder placeholder placeholder placeholder placeholder placeholder</p>
+                                    <div class="ps-3">
+                                        <div class="d-flex" style="height:100px;">
+                                            <img src="img/blood.jpg" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
+                                            <p class="ps-4">Suntik Keren tes tes placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder placeholder</p>
+                                        </div>
                                         <h5>Rp67.000</h5>
                                     </div>
-                                    <div class="d-flex justify-content-between ps-3">
-                                        <a data-bs-toggle="collapse" href="#catatan" role="button" aria-expanded="false" aria-controls="catatan">
+
+                                    <div class="d-flex ps-3 justify-content-between">
+                                        <a data-bs-toggle="collapse" href="#catatan2" role="button" aria-expanded="false" aria-controls="catatan2">
                                             Tulis Catatan
                                         </a>
-                                        tes
+
+                                        <div class="d-flex justify-content-center">
+                                            <!-- <a href=hapus.php?id_jadwal=<?php echo $datatabel['id_jadwal']; ?>> -->
+                                            <button class="btn btn-default pt-0 pb-1 px-1">
+                                                <img src="img/sampah.svg" width="18px" class="mx-0 my-0">
+                                            </button>
+                                            <input type="number" class="form-number text-center" min="1" id="customRange3" style="width: 50px;" value="1">
+
+                                        </div>
                                     </div>
-                                    <div class="collapse" id="catatan" style="width: 130px;">
+                                    <div class="collapse" id="catatan2" style="width: 130px;">
                                         <input class="card card-body" style="height: 5px;" type="text">
                                     </div>
                                 </div>
@@ -83,36 +92,10 @@
                                     <label class="form-check-label" for="item1">
                                         <h5>Suntik</h5>
                                     </label>
-                                    
+
                                     <div class="d-flex justify-content-start ps-3" style="height:100px;">
                                         <img src="img/blood.jpg" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
-                                        <p class="ps-4">Suntik Keren tes tes placeholder  placeholder placeholder</p>
-                                        <h5>Rp67.000</h5>
-                                    </div>
-
-
-                                    <div class="d-flex justify-content-between ps-3">
-                                        <a data-bs-toggle="collapse" href="#catatan" role="button" aria-expanded="false" aria-controls="catatan">
-                                            Tulis Catatan
-                                        </a>
-                                        tes
-                                    </div>
-                                    <div class="collapse" id="catatan" style="width: 130px;">
-                                        <input class="card card-body" style="height: 5px;" type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ganti barang -->
-                            <div class="card border-light">
-                                <div class="card-body">
-                                    <input class="form-check-input" type="checkbox" id="item1">
-                                    <label class="form-check-label" for="item1">
-                                        <h5>Suntik</h5>
-                                    </label>
-                                    
-                                    <div class="d-flex justify-content-start ps-3" style="height:100px;">
-                                        <img src="img/blood.jpg" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
-                                        <p class="ps-4">Suntik Keren tes tes placeholder  placeholder placeholder</p>
+                                        <p class="ps-4">Suntik Keren tes tes placeholder placeholder placeholder</p>
                                         <h5>Rp67.000</h5>
                                     </div>
 
@@ -135,10 +118,10 @@
                                     <label class="form-check-label" for="item1">
                                         <h5>Suntik</h5>
                                     </label>
-                                    
+
                                     <div class="d-flex justify-content-start ps-3" style="height:100px;">
                                         <img src="img/blood.jpg" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
-                                        <p class="ps-4">Suntik Keren tes tes placeholder  placeholder placeholder</p>
+                                        <p class="ps-4">Suntik Keren tes tes placeholder placeholder placeholder</p>
                                         <h5>Rp67.000</h5>
                                     </div>
 

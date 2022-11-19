@@ -103,7 +103,7 @@ if (empty($_SESSION['username'])) {
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $data['name']; ?></h5>
-                                    <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
+                                    <h6 class="card-title">Rp. <?= number_format($data['price'],0,"",".") ?></h6>
                                     <p class="card-text"><?= $data['penjelasan']; ?></p>
                                     <a href=index_admin_delete.php?productid=<?php echo $data['productid'];?>>
                                     <button type="button" class="btn btn-primary pt-1 pb-1 mb-2" style="background-color: #00A445; width: 80%;">

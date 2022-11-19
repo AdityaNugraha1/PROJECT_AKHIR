@@ -94,9 +94,12 @@
             </div>
             <div class="card-body">
               <h5 class="card-title"><?= $data['name']; ?></h5>
-              <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
+              <h6 class="card-title">Rp. <?= number_format($data['price'],0,"",".") ?></h6>
               <p class="card-text"><?= $data['penjelasan']; ?></p>
-              <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="login" style="background-color: #00A445;">Masukkan Keranjang</button>
+              <a href=index_admin_edit.php>
+              <button type="button" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
+                  Masukkan Keranjang
+              </button></a>
             </div>
           </div>
         </div>  

@@ -43,7 +43,7 @@ if($_SESSION['level']!="admin"){
 								</div>
 								<br>
 								<div class="mb-0">
-									<input type="text" name="penjelasan" class="form-control" id="exampleFormControlInput1" placeholder="Masukkan Deskripsi Barang">
+									<input type="text" name="penjelasan" class="form-control" maxlength="105" id="exampleFormControlInput1" placeholder="Masukkan Deskripsi Barang">
 								</div>
 								<br>
 								<div class="mb-0">

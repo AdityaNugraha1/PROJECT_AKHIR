@@ -15,7 +15,7 @@
 	$query	= mysqli_query($connect, $sql) or die(mysqli_error($connect));
 
 	if($query) {
-		header("location:index_login.php?message=tambah berhasil");
+		header("location:index_login.php?message=tambah_berhasil");
 	} else {
 		header("location:index_login.php?message=failed");
 	}

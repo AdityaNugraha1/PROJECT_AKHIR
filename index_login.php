@@ -102,7 +102,7 @@ if (empty($_SESSION['username'])) {
                                 </div>
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $data['name']; ?></h5>
-                                    <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
+                                    <h6 class="card-title">Rp. <?= number_format($data['price'],0,"",".") ?></h6>
                                     <p class="card-text"><?= $data['penjelasan']; ?></p>
                                     <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['productid']; ?>" style="background-color: #00A445;">
                                         Masukkan Keranjang

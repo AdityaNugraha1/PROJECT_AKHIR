@@ -35,7 +35,7 @@ if (empty($_SESSION['username'])) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:20px;">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" style="color: #00A445;">
-                        <a class="nav-link text-white" href="keranjang.php">Home</a>
+                        <a class="nav-link text-white" href="index_login.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white " href="#produk">Produk</a>
@@ -72,9 +72,9 @@ if (empty($_SESSION['username'])) {
                             <?php
                             include('koneksi.php');
                             $username = $_SESSION['username'];
-                            $sql = "SELECT a.keranjangid, a.orderlineid, a.total_harga, b.productid, b.quantity, b.catatanorder, c.name, c.penjelasan, c.foto, c.price 
-                                    FROM keranjang a INNER JOIN orderline b ON a.orderlineid=b.orderlineid INNER JOIN product c 
-                                    ON b.productid=c.productid where a.username='$username';";
+                            $sql = "SELECT a.keranjangid, a.total_harga, a.productid, a.quantity, a.catatanorder, c.name, c.penjelasan, c.foto, c.price 
+                                    FROM keranjang a INNER JOIN product c 
+                                    ON a.productid=c.productid where a.username='$username';";
 
                             $query    = mysqli_query($connect, $sql);
                             $jumlah = 0;
@@ -104,8 +104,11 @@ if (empty($_SESSION['username'])) {
                                             <div class="d-flex justify-content-center">
                                                 <!-- <a href=hapus.php?id_jadwal=<?php echo $datatabel['id_jadwal']; ?>> -->
                                                 <button class="btn btn-default pt-0 pb-1 px-1">
-                                                    <img src="img/sampah.svg" width="18px" class="mx-0 my-0">
+                                                    <img src="img/sampah.svg" width="18px" class="mx-0 my-0" data-bs-toggle="modal" data-bs-target="#staticBackdroph<?= $data['keranjangid'] ?>">
                                                 </button>
+
+
+
                                                 <!-- Button trigger modal -->
                                                 <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['keranjangid'] ?>" style="background-color: #00A445;">
                                                     Edit Pesanan
@@ -121,7 +124,7 @@ if (empty($_SESSION['username'])) {
                                                             </div>
                                                             <form method="POST" action="keranjang_edit.php">
                                                                 <div class="modal-body">
-                                                                    <input type="hidden" name="idedit" value=<?= $data['orderlineid'] ?>>
+                                                                    <input type="hidden" name="idedit" value=<?= $data['keranjangid'] ?>>
                                                                     Ganti Jumlah barang
                                                                     <input type="number" class="form-number text-center" min="1" name="quantity" style="width: 50px;" value=<?= $data['quantity'] ?>>
                                                                     <hr>
@@ -131,51 +134,67 @@ if (empty($_SESSION['username'])) {
                                                                 <div class="modal-footer">
                                                                     <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                                                                     <button type="submit" class="btn btn-primary" style="background-color: #00A445;">Edit</button>
+                                                                </div>
                                                             </form>
-
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                                <!-- Modal hapus -->
+                                                <div class="modal fade" id="staticBackdroph<?= $data['keranjangid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                        <form method="POST" action="keranjang_hapus.php">
+                                                            <div class="modal-body text-center">
+                                                                <h5>Yakin ingin hapus dari keranjang?</h5>
+                                                                <input type="hidden" name="idhapus" value=<?= $data['keranjangid'] ?>>
+                                                            </div>
+                                                            <div class="modal-footer justify-content-center">
+                                                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                                                <button type="submit" class="btn btn-danger">Ya</button>
+                                                            </div>
+                                                        </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
+                                            </div>
+                                        </div>
+                                        <div class="collapse" id="catatan2" style="width: 130px;">
+                                            <input class="card card-body" style="height: 5px;" type="text">
                                         </div>
                                     </div>
-                                    <div class="collapse" id="catatan2" style="width: 130px;">
-                                        <input class="card card-body" style="height: 5px;" type="text">
-                                    </div>
                                 </div>
-                        </div>
-                    <?php
+                            <?php
                                 $jumlah++;
                             }
-                    ?>
+                            ?>
 
-                    <!-- jumlah  -->
-                    <!-- Kolom kanan Berisi total -->
-                    <div class="col-4 fixed-top offset-8 my-5 py-5">
-                        <div class="card w-75">
-                            <div class="card-body">
-                                <h5 class="card-title">Ringkasan Belanja</h5>
-                                <p class="card-text">
-                                <div class="d-flex justify-content-between">
-                                    <div>Total Harga (<?= $jumlah ?> barang)</div>
-                                    <div>Rp67.000</div>
-                                </div>
-                                </p>
-                                <hr>
-                                <h5 class="card-text pb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <div>Total Harga</div>
-                                        <div>Rp67.000</div>
+                            <!-- jumlah  -->
+                            <!-- Kolom kanan Berisi total -->
+                            <div class="col-4 fixed-top offset-8 my-5 py-5">
+                                <div class="card w-75">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ringkasan Belanja</h5>
+                                        <p class="card-text">
+                                        <div class="d-flex justify-content-between">
+                                            <div>Total Harga (<?= $jumlah ?> barang)</div>
+                                            <div>Rp67.000</div>
+                                        </div>
+                                        </p>
+                                        <hr>
+                                        <h5 class="card-text pb-2">
+                                            <div class="d-flex justify-content-between">
+                                                <div>Total Harga</div>
+                                                <div>Rp67.000</div>
+                                            </div>
+                                        </h5>
+                                        <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>
                                     </div>
-                                </h5>
-                                <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    </div>
                 </div>
-            </div>
     </section>
     <!-- <script src="js/scripts.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

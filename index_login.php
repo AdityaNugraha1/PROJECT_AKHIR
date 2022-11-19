@@ -91,7 +91,6 @@ if (empty($_SESSION['username'])) {
                     include('koneksi.php');
 
                     $sql   = "SELECT * FROM product";
-                    UPDATE keranjang SET total_harga = (SELECT product.price FROM product INNER JOIN keranjang ON product.productid = keranjang.keranjangid)*'$quantity' WHERE keranjangid = '$idedit';
                     $query  = mysqli_query($connect, $sql);
                     $username = $_SESSION['username'];
                     while ($data = mysqli_fetch_array($query)) {
@@ -119,8 +118,9 @@ if (empty($_SESSION['username'])) {
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <input type="hidden" name="<?= $username; ?>" value="<?= $username; ?>">
+                                                        <input type="hidden" name="username" value="<?=$username;?>">
                                                         <input type="hidden" value="<?= $data['productid']; ?>" name="productid">
+                                                        <input type="hidden" value="<?= $data['price']; ?>" name="price">
                                                         Jumlah barang
                                                         <input type="number" name="quantity" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
                                                         <hr>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['username'])) {
-    header("location:login.php?message=belum login");
+    header("location:login.php?message=belum_login");
 }
 ?>
 
@@ -106,7 +106,36 @@ if (empty($_SESSION['username'])) {
                                     <h5 class="card-title"><?= $data['name']; ?></h5>
                                     <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
                                     <p class="card-text"><?= $data['penjelasan']; ?></p>
-                                    <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
+                                    <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['productid']; ?>" style="background-color: #00A445;">
+                                        Masukkan Keranjang
+                                    </button>
+
+
+                                    <div class="modal fade" id="staticBackdrop<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <form method="POST" action="index_login_proses.php">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Masukkan Pesanan</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <input type="hidden" value="<?= $data['productid']; ?>" name="productid">
+                                                        Jumlah barang
+                                                        <input type="number" name="quantity" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
+                                                        <hr>
+                                                        Tulis Catatan
+                                                        <input class="card card-body" style="height: 5px; width: 100%" type="text" name="catatanorder">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                        <button type="submit" class="btn btn-primary " style="background-color: #00A445;">Submit</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>

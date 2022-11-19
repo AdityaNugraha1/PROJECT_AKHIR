@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (empty($_SESSION['username'])) {
+    header("location:login.php?message=belum login");
+}
+?>
+
 <!doctype html>
 <html lang="en">
 

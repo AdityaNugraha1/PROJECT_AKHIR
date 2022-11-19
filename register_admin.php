@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (empty($_SESSION['username'])) {
+    header("location:login.php?message=belum login");
+}
+if($_SESSION['level']!="admin"){
+    die("Anda Bukan Admin");
+}
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -12,7 +22,7 @@
 <body>
     <section class="vh-100">
         <div class="container-fluid h-custom">
-            <form method="POST" action="register_proses.php" >
+            <form method="POST" action="register_proses_admin.php" >
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-md-9 col-lg-6 col-xl-5">
                     <img src="asset/medicaltool-icon.png" class="rounded img-fluid" alt="medical device">
@@ -43,11 +53,19 @@
                             <label class="form-label" for="form3Example4">Alamat</label>
                             <textarea class="form-control" name="alamat" aria-label="With textarea"></textarea>
                         </div>
+                        <label class="form-label" for="form3Example4">Level</label>
+                        <select class="form-select" name="level" aria-label="Default select example" style="height:50px;">
+                          <option selected>Pilih Level</option>
+                          <option value="admin" name="admin">Admin</option>
+                          <option value="" >User</option>
+                        </select>
+                        <br>
 
                         <div class="text-center text-lg-start pt-2">
                             <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Register</button>
                             <p class="small fw-bold mt-2 pt-1 mb-0">have an account? <a href="login.php" style="color:blue;">login</a></p>
                         </div>
+
                     </form>
 
                 </div>

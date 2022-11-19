@@ -20,22 +20,33 @@
                     <div class="mx-auto d-block pb-5" style="width:60%;">
                         <img src="asset/logo.png" class="rounded img-fluid" alt="medical device">
                     </div>
-                    <form>
+                    <?php
+                    if (isset($_GET['message'])) {
+                        if ($_GET['message'] == "failed") {
+                            echo "login failed! Username atau password salah.";
+                        } elseif ($_GET['message'] == "logout") {
+                            echo "Anda telah berhasil logout";
+                        } elseif ($_GET['message'] == "belum_login") {
+                            echo "Anda belum_login";
+                        }
+                    }
+                    ?>
+                    <form method="POST" action="login_proses.php">
                         <!-- Email input -->
-                        <div class="form-outline mb-4">
-                            <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Enter Username" />
+                        <div class="form-outline mb-2 mt-2">
+                            <input type="text" id="form3Example3" class="form-control form-control-lg" name="username" placeholder="Enter Username" />
                             <label class="form-label" for="form3Example3">Username</label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-3">
-                            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Enter password" />
+                            <input type="password" id="form3Example4" class="form-control form-control-lg" name="password" placeholder="Enter password" />
                             <label class="form-label" for="form3Example4">Password</label>
                         </div>
 
                         <div class="text-center text-lg-start pt-2">
-                            <button type="button" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="#!" class="stretched-link">Register</a></p>
+                            <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+                            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="register.php" style="color:blue;">Register</a></p>
                         </div>
                     </form>
 

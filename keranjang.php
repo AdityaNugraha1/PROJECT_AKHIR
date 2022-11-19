@@ -98,7 +98,10 @@ if (empty($_SESSION['username'])) {
                                                 <h5>Rp<?= number_format($data['price'],0,"",".") ?> x <?= $data['quantity'] ?></h5>
                                                 <h5>Rp<?= number_format($data['total_harga'],0,"",".") ?></h5>
                                             </div>
-
+                                            <div class="d-flex">
+                                                <a> Catatan :</a>
+                                                <a style="text-decoration:none;"><?= $data['catatanorder'] ?><a>
+                                            </div>
                                         </div>
 
                                         <div class="d-flex ps-3 justify-content-end">

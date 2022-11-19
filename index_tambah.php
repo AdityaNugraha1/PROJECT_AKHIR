@@ -3,6 +3,9 @@ session_start();
 if (empty($_SESSION['username'])) {
     header("location:login.php?message=belum_login");
 }
+if($_SESSION['level']!="Admin"){
+    die("Anda bukan Admin");
+}
 ?>
 
 <!DOCTYPE html>

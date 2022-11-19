@@ -29,7 +29,7 @@ if (empty($_SESSION['username'])) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:20px;">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" style="color: #00A445;">
-                        <a class="nav-link active text-white" aria-current="page" href="index_tambah.php">Home</a>
+                        <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white " href="#produk">Produk</a>

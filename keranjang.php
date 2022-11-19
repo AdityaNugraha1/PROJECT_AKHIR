@@ -78,7 +78,7 @@ if (empty($_SESSION['username'])) {
 
                             $query    = mysqli_query($connect, $sql);
                             $jumlah = 0;
-                            $totalharga = 0;
+                            $sumharga = 0;
 
                             while ($data = mysqli_fetch_array($query)) {
                             ?>
@@ -125,6 +125,7 @@ if (empty($_SESSION['username'])) {
                                                             </div>
                                                             <form method="POST" action="keranjang_edit.php">
                                                                 <div class="modal-body">
+                                                                    <input type="hidden" name="price" value="<?=$data['price']?>">
                                                                     <input type="hidden" name="idedit" value=<?= $data['keranjangid'] ?>>
                                                                     Ganti Jumlah barang
                                                                     <input type="number" class="form-number text-center" min="1" name="quantity" style="width: 50px;" value=<?= $data['quantity'] ?>>
@@ -167,7 +168,7 @@ if (empty($_SESSION['username'])) {
                                 </div>
                             <?php
                                 $jumlah++;
-                                $totalharga=$totalharga+$data['total_harga'];
+                                $sumharga=$sumharga+$data['total_harga'];
                             }
                             ?>
 
@@ -180,14 +181,14 @@ if (empty($_SESSION['username'])) {
                                         <p class="card-text">
                                         <div class="d-flex justify-content-between">
                                             <div>Total Harga (<?= $jumlah ?> barang)</div>
-                                            <div><?= number_format($totalharga,0,"",".") ?></div>
+                                            <div><?= number_format($sumharga,0,"",".") ?></div>
                                         </div>
                                         </p>
                                         <hr>
                                         <h5 class="card-text pb-2">
                                             <div class="d-flex justify-content-between">
                                                 <div>Total Harga</div>
-                                                <div><?= number_format($totalharga,0,"",".") ?></div>
+                                                <div><?= number_format($sumharga,0,"",".") ?></div>
                                             </div>
                                         </h5>
                                         <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>

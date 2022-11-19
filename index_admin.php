@@ -86,11 +86,6 @@ if (empty($_SESSION['username'])) {
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div id="produk">
-         <?php
-        include 'koneksi.php';
-        $productid = $_GET['productid'];
-        ?>
         <div class="p-3 m-0 border-0">
             <div class="container text-center">
                 <div class="row">

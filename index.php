@@ -22,7 +22,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:20px;">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item" style="color: #00A445;">
-            <a class="nav-link active text-white" aria-current="page" href="index_tambah.php">Home</a>
+            <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white " href="#produk">Produk</a>
@@ -96,7 +96,7 @@
               <h5 class="card-title"><?= $data['name']; ?></h5>
               <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
               <p class="card-text"><?= $data['penjelasan']; ?></p>
-              <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
+              <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="login" style="background-color: #00A445;">Masukkan Keranjang</button>
             </div>
           </div>
         </div>  

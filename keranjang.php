@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (empty($_SESSION['username'])) {
-    header("location:login.php?message=belum login");
+    header("location:login.php?message=belum_login");
 }
 ?>
 
@@ -27,7 +27,7 @@ if (empty($_SESSION['username'])) {
 <body>
     <nav class="navbar fixed-top navbar-expand-lg background-primary" style="height:60px;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php" style="font-weight:bolder; color:#00A445;">
+            <a class="navbar-brand" href="keranjang.php" style="font-weight:bolder; color:#00A445;">
                 <img src="asset/logo putih.png" alt="logo" style="height: 25px; margin-top: -7px; padding-left: 4px;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,7 +35,7 @@ if (empty($_SESSION['username'])) {
             <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-size:20px;">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item" style="color: #00A445;">
-                        <a class="nav-link text-white" href="index.php">Home</a>
+                        <a class="nav-link text-white" href="keranjang.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white " href="#produk">Produk</a>
@@ -64,7 +64,6 @@ if (empty($_SESSION['username'])) {
                             Pilih Semua
                         </label>
                     </div>
-
                     <div class="card">
                         <div class="card-body">
                             <!-- ganti barang -->
@@ -127,9 +126,7 @@ if (empty($_SESSION['username'])) {
                             <?php
                             include('koneksi.php');
                             $username = $_SESSION['username'];
-                            $sql = "SELECT a.keranjangid, a.orderlineid, a.total_harga, b.productid, b.quantity, c.name, c.penjelasan, c.foto, c.price 
-                                    FROM keranjang a INNER JOIN orderline b ON a.orderlineid=b.orderlineid INNER JOIN product c 
-                                    ON b.productid=c.productid where a.username='$username';";
+                            $sql    = "SELECT * FROM `keranjang` INNER JOIN orderline ON keranjang.orderlineid = orderline.orderlineid INNER JOIN orderstatus ON keranjang.orderstatusid = orderstatus.orderstatusid INNER JOIN user ON keranjang.username = user.username; " ;
 
                             $query    = mysqli_query($connect, $sql);
                             $jumlah = 0;

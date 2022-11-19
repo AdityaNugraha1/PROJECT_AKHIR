@@ -84,30 +84,32 @@ if (empty($_SESSION['username'])) {
         </button>
     </div>
     <div id="produk">
-        <form method="POST" action="index_login_proses.php">
-            <div class="p-3 m-0 border-0">
-                <div class="container text-center">
-                    <div class="row">
-                        <?php
-                        include('koneksi.php');
+        <div class="p-3 m-0 border-0">
+            <div class="container text-center">
+                <div class="row">
+                    <?php
+                    include('koneksi.php');
 
-                        $sql   = "SELECT * FROM product";
-                        $query  = mysqli_query($connect, $sql);
-                        while ($data = mysqli_fetch_array($query)) {
-                        ?>
-                            <div class="col">
-                                <div class="card" style="width: 18rem;">
-                                    <div class="m-2 p-1" style="height:270px;">
-                                        <img src="img/<?php echo $data['foto']; ?>" class="card-img-top">
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?= $data['name']; ?></h5>
-                                        <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
-                                        <p class="card-text"><?= $data['penjelasan']; ?></p>
-                                        <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['productid']; ?>" style="background-color: #00A445;">
-                                            Masukkan Keranjang
-                                        </button>
-                                        <div class="modal fade" id="staticBackdrop<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    $sql   = "SELECT * FROM product";
+                    $query  = mysqli_query($connect, $sql);
+                    while ($data = mysqli_fetch_array($query)) {
+                    ?>
+                        <div class="col">
+                            <div class="card" style="width: 18rem;">
+                                <div class="m-2 p-1" style="height:270px;">
+                                    <img src="img/<?php echo $data['foto']; ?>" class="card-img-top">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $data['name']; ?></h5>
+                                    <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
+                                    <p class="card-text"><?= $data['penjelasan']; ?></p>
+                                    <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['productid']; ?>" style="background-color: #00A445;">
+                                        Masukkan Keranjang
+                                    </button>
+
+
+                                    <div class="modal fade" id="staticBackdrop<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                        <form method="POST" action="index_login_proses.php">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -128,15 +130,16 @@ if (empty($_SESSION['username'])) {
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </form>
+
                                     </div>
                                 </div>
                             </div>
-                        <?php } ?>
-                    </div>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
     <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 mt-5 background-primary">

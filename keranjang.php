@@ -84,7 +84,6 @@ if (empty($_SESSION['username'])) {
 
                                     <div class="d-flex ps-3 justify-content-end">
                                         <div class="d-flex justify-content-center">
-                                            <!-- <a href=hapus.php?id_jadwal=<?php echo $datatabel['id_jadwal']; ?>> -->
                                             <button class="btn btn-default pt-0 pb-1 px-1">
                                                 <img src="img/sampah.svg" width="18px" class="mx-0 my-0">
                                             </button>
@@ -123,11 +122,12 @@ if (empty($_SESSION['username'])) {
                                     </div>
                                 </div>
                             </div>
+
                             <!-- ganti barang -->
                             <?php
                             include('koneksi.php');
                             $username = $_SESSION['username'];
-                            $sql = "SELECT a.keranjangid, a.orderlineid, a.total_harga, b.quantity, c.name, c.penjelasan, c.foto, c.price 
+                            $sql = "SELECT a.keranjangid, a.orderlineid, a.total_harga, b.productid, b.quantity, c.name, c.penjelasan, c.foto, c.price 
                                     FROM keranjang a INNER JOIN orderline b ON a.orderlineid=b.orderlineid INNER JOIN product c 
                                     ON b.productid=c.productid where a.username='$username';";
 
@@ -171,7 +171,7 @@ if (empty($_SESSION['username'])) {
                                                             </div>
                                                             <div class="modal-body">
                                                                 Ganti Jumlah barang
-                                                                <input type="number" class="form-number text-center" min="1" id="customRange3" style="width: 50px;" value=>
+                                                                <input type="number" class="form-number text-center" min="1" id="customRange3" name=<?=$data['quantity']?> style="width: 50px;" value=<?=$data['quantity']?>>
                                                                 <hr>
                                                                 Tulis Catatan
                                                                 <input class="card card-body" style="height: 5px;" type="text">

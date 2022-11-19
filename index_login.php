@@ -116,8 +116,9 @@ if (empty($_SESSION['username'])) {
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            Ganti Jumlah barang
-                                                            <input type="number" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value=>
+                                                            <input type="hidden" value="<?= $data['name']; ?>" name="name">
+                                                            Jumlah barang
+                                                            <input type="number" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
                                                             <hr>
                                                             Tulis Catatan
                                                             <input class="card card-body" style="height: 5px; width: 100%"  type="text">

@@ -104,11 +104,10 @@ if (empty($_SESSION['username'])) {
                                     <h5 class="card-title"><?= $data['name']; ?></h5>
                                     <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
                                     <p class="card-text"><?= $data['penjelasan']; ?></p>
-                                    <input type="hidden" name="productid" value="<?= $productid; ?>">
-                                    <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="background-color: #00A445;">
+                                    <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1<?= $data['productid']; ?>" style="background-color: #00A445;">
                                                 Masukkan Keranjang
                                             </button>
-                                            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal fade" id="staticBackdrop1<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -116,21 +115,20 @@ if (empty($_SESSION['username'])) {
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <input type="hidden" value="<?= $data['name']; ?>" name="name">
+                                                            <input type="hidden" value="<?= $data['productid']; ?>" name="productid">
                                                             Jumlah barang
-                                                            <input type="number" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
+                                                            <input type="number" name ="quantity" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
                                                             <hr>
                                                             Tulis Catatan
-                                                            <input class="card card-body" style="height: 5px; width: 100%"  type="text">
+                                                            <input class="card card-body" style="height: 5px; width: 100%" type="text" name="catatanorder">
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                            <button type="button" class="btn btn-primary " style="background-color: #00A445;">Submit</button>
+                                                            <button type="submit" class="btn btn-primary " style="background-color: #00A445;">Submit</button>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
                                 </div>
                             </div>
                         </div>
@@ -138,6 +136,7 @@ if (empty($_SESSION['username'])) {
                 </div>
             </div>
         </div>
+         </form>
     </div>
 
     <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 mt-5 background-primary">

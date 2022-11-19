@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 02:57 PM
+-- Generation Time: Nov 19, 2022 at 03:55 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -36,6 +36,72 @@ CREATE TABLE `keranjang` (
   `catatanorder` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderline`
+--
+
+CREATE TABLE `orderline` (
+  `orderlineid` int(11) NOT NULL,
+  `productid` int(11) NOT NULL,
+  `quantity` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderstatus`
+--
+
+CREATE TABLE `orderstatus` (
+  `orderstatusid` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
+
+CREATE TABLE `product` (
+  `productid` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `price` int(10) NOT NULL,
+  `foto` text NOT NULL,
+  `penjelasan` varchar(105) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`productid`, `name`, `price`, `foto`, `penjelasan`) VALUES
+(1, 'Auto Clave', 4000000, 'autoclave.jpg', 'Autoclave adalah salah satu alat laboratorium yang digunakan untuk mensterilkan alat-alat laboratorium se');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user`
+--
+
+CREATE TABLE `user` (
+  `username` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `telp` int(20) NOT NULL,
+  `alamat` text NOT NULL,
+  `level` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`username`, `password`, `telp`, `alamat`, `level`) VALUES
+('admin', 'admin', 812345678, 'wates, kulon progo', 'admin'),
+('user', 'user', 82131414, 'jepara, jawa tengah', '');
+
 --
 -- Indexes for dumped tables
 --
@@ -49,6 +115,31 @@ ALTER TABLE `keranjang`
   ADD KEY `productid` (`productid`);
 
 --
+-- Indexes for table `orderline`
+--
+ALTER TABLE `orderline`
+  ADD PRIMARY KEY (`orderlineid`),
+  ADD KEY `orderline_ibfk_1` (`productid`);
+
+--
+-- Indexes for table `orderstatus`
+--
+ALTER TABLE `orderstatus`
+  ADD PRIMARY KEY (`orderstatusid`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`productid`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`username`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -56,7 +147,25 @@ ALTER TABLE `keranjang`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `keranjangid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `keranjangid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `orderline`
+--
+ALTER TABLE `orderline`
+  MODIFY `orderlineid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orderstatus`
+--
+ALTER TABLE `orderstatus`
+  MODIFY `orderstatusid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `productid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -68,6 +177,12 @@ ALTER TABLE `keranjang`
 ALTER TABLE `keranjang`
   ADD CONSTRAINT `keranjang_ibfk_2` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
   ADD CONSTRAINT `keranjang_ibfk_3` FOREIGN KEY (`productid`) REFERENCES `product` (`productid`);
+
+--
+-- Constraints for table `orderline`
+--
+ALTER TABLE `orderline`
+  ADD CONSTRAINT `orderline_ibfk_1` FOREIGN KEY (`productid`) REFERENCES `product` (`productid`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

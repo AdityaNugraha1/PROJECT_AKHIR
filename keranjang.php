@@ -111,7 +111,6 @@ if (empty($_SESSION['username'])) {
 
                                         <div class="d-flex ps-3 justify-content-end">
                                             <div class="d-flex justify-content-center">
-                                                <!-- <a href=hapus.php?id_jadwal=<?php echo $datatabel['id_jadwal']; ?>> -->
                                                 <button class="btn btn-default pt-0 pb-1 px-1">
                                                     <img src="img/sampah.svg" width="18px" class="mx-0 my-0" data-bs-toggle="modal" data-bs-target="#staticBackdroph<?= $data['keranjangid'] ?>">
                                                 </button>

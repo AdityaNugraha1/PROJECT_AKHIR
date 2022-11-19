@@ -106,12 +106,17 @@ if (empty($_SESSION['username'])) {
                                     <h5 class="card-title"><?= $data['name']; ?></h5>
                                     <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
                                     <p class="card-text"><?= $data['penjelasan']; ?></p>
-                                    <button type="button" class="btn btn-primary pt-1 pb-1 mb-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['productid']; ?>" style="background-color: #00A445;">
+                                    <button type="button" class="btn btn-primary pt-1 pb-1 mb-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['productid']; ?>" style="background-color: #00A445; width: 80%;">
                                         Masukkan Keranjang
                                     </button>
-                                    <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['productid']; ?>" style="background-color: #00A445;">
-                                        Masukkan Keranjang
-                                    </button>
+                                    <a href=index_admin_delete.php?productid=<?php echo $data['productid'];?>>
+                                    <button type="button" class="btn btn-primary pt-1 pb-1 mb-2" style="background-color: #00A445; width: 80%;">
+                                        Hapus Keranjang
+                                    </button></a>
+                                    <a href=index_admin_edit.php>
+                                    <button type="button" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
+                                        Edit Keranjang
+                                    </button></a>
 
 
                                     <div class="modal fade" id="staticBackdrop<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

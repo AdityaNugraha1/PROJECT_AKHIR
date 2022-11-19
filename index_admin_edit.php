@@ -15,18 +15,18 @@ if($_SESSION['level']!="admin"){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-	<title>Tambah Barang</title>
+	<title>Edit Barang</title>
 	<link rel="stylesheet" href="style/style.css">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
 	<div class="col" style="padding-top: 200px;">
-		<form enctype="multipart/form-data" class="form" method="POST" action="index_tambah_proses.php">
+		<form enctype="multipart/form-data" class="form" method="POST" action="index_admin_edit_proses.php">
 			<center>
 				<table>
 					<tr>
 						<td>
-							<h2 align="center">Tambah Barang</h2>
+							<h2 align="center">Edit Barang</h2>
 						</td>
 					</tr>
 				</table>

@@ -13,7 +13,7 @@ include 'koneksi.php';
 
 	if($query)
 	{
-		header("location:index.php");
+		header("location:index_admin.php");
 	}
 	else{
 		echo "proses update gagal";

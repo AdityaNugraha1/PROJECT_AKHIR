@@ -34,13 +34,13 @@
                     <form method="POST" action="login_proses.php">
                         <!-- Email input -->
                         <div class="form-outline mb-2 mt-2">
-                            <input type="text" id="form3Example3" class="form-control form-control-lg" placeholder="Enter Username" />
+                            <input type="text" id="form3Example3" class="form-control form-control-lg" name="username" placeholder="Enter Username" />
                             <label class="form-label" for="form3Example3">Username</label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-3">
-                            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Enter password" />
+                            <input type="password" id="form3Example4" class="form-control form-control-lg" name="password" placeholder="Enter password" />
                             <label class="form-label" for="form3Example4">Password</label>
                         </div>
 

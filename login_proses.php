@@ -10,7 +10,7 @@
     $password = $_POST['password'];
     
     // menyeleksi data user dengan username dan password yang sesuai
-    $login = mysqli_query($connect,"select * from user where username='$username' and password='$password'");
+    $login = mysqli_query($connect,"SELECT * FROM user WHERE username='$username' AND password='$password'");
     // menghitung jumlah data yang ditemukan
     $cek = mysqli_num_rows($login);
     
@@ -27,21 +27,13 @@
             // alihkan ke halaman dashboard admin
             header("location:index_admin.php");
     
-        // cek jika user login sebagai pegawai
-        }else if($data['level']=="pegawai"){
+        // cek jika user login sebagai user
+        }else if($data['level']==""){
             // buat session login dan username
             $_SESSION['username'] = $username;
-            $_SESSION['level'] = "pegawai";
+            $_SESSION['level'] = "";
             // alihkan ke halaman dashboard pegawai
-            header("location:halaman_pegawai.php");
-    
-        // cek jika user login sebagai pengurus
-        }else if($data['level']=="pengurus"){
-            // buat session login dan username
-            $_SESSION['username'] = $username;
-            $_SESSION['level'] = "pengurus";
-            // alihkan ke halaman dashboard pengurus
-            header("location:halaman_pengurus.php");
+            header("location:index_login.php");
     
         }else{
     

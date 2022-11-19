@@ -84,6 +84,7 @@ if (empty($_SESSION['username'])) {
         </button>
     </div>
     <div id="produk">
+    <form method="POST" action="index_login_proses">
         <div class="p-3 m-0 border-0">
             <div class="container text-center">
                 <div class="row">
@@ -103,24 +104,32 @@ if (empty($_SESSION['username'])) {
                                     <h5 class="card-title"><?= $data['name']; ?></h5>
                                     <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
                                     <p class="card-text"><?= $data['penjelasan']; ?></p>
-                                    <a href="#" class="btn btn-primary" style=" background-color: #00A445;">Add To Cart</a>
-                                    <div class="modal" tabindex="1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+                                    <input type="hidden" name="productid" value="<?= $productid; ?>">
+                                    <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="background-color: #00A445;">
+                                                Masukkan Keranjang
+                                            </button>
+                                            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Pesanan</h1>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Ganti Jumlah barang
+                                                            <input type="number" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value=>
+                                                            <hr>
+                                                            Tulis Catatan
+                                                            <input class="card card-body" style="height: 5px; width: 100%"  type="text">
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                            <button type="button" class="btn btn-primary " style="background-color: #00A445;">Edit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                 </div>
                             </div>
                         </div>

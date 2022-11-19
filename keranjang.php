@@ -102,7 +102,7 @@ if (empty($_SESSION['username'])) {
                                                         </div>
                                                         <div class="modal-body">
                                                             Ganti Jumlah barang
-                                                            <input type="number" class="form-number text-center" min="1" id="customRange3" style="width: 50px;" value=>
+                                                            <input type="number" class="form-number text-center" min="1" id="customRange3" style="width: 50px;" value="2">
                                                             <hr>
                                                             Tulis Catatan
                                                             <input class="card card-body" style="height: 5px;" type="text">
@@ -138,16 +138,16 @@ if (empty($_SESSION['username'])) {
 
                                 <div class="card border-light">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="checkbox" id="<?=$data['keranjangid']?>_item" name="<?=$data['keranjangid']?>">
+                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="<?= $data['keranjangid'] ?>">
                                         <label class="form-check-label" for="item">
-                                            <h5><?=$data['name']?></h5>
+                                            <h5><?= $data['name'] ?></h5>
                                         </label>
                                         <div class="ps-3">
                                             <div class="d-flex" style="height:100px;">
-                                                <img src="img/<?=$data['foto']?>" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
-                                                <p class="ps-4"><?=$data['penjelasan']?></p>
+                                                <img src="img/<?= $data['foto'] ?>" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
+                                                <p class="ps-4"><?= $data['penjelasan'] ?></p>
                                             </div>
-                                            <h5>Rp<?=$data['price']?></h5>
+                                            <h5>Rp<?= $data['price'] ?></h5>
                                         </div>
 
                                         <div class="d-flex ps-3 justify-content-end">
@@ -157,69 +157,73 @@ if (empty($_SESSION['username'])) {
                                                     <img src="img/sampah.svg" width="18px" class="mx-0 my-0">
                                                 </button>
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="background-color: #00A445;">
+                                                <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" style="background-color: #00A445;">
                                                     Edit Pesanan
                                                 </button>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
                                                                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Edit Pesanan</h1>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            <div class="modal-body">
-                                                                Ganti Jumlah barang
-                                                                <input type="number" class="form-number text-center" min="1" id="customRange3" name=<?=$data['quantity']?> style="width: 50px;" value=<?=$data['quantity']?>>
-                                                                <hr>
-                                                                Tulis Catatan
-                                                                <input class="card card-body" style="height: 5px;" type="text">
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                                <button type="button" class="btn btn-primary " style="background-color: #00A445;">Edit</button>
-                                                            </div>
+                                                            <form method="POST" action="keranjang_edit.php">
+                                                                <div class="modal-body">
+                                                                    <input type="hidden" name="idedit" value=<?=$data['orderlineid']?>>
+                                                                    Ganti Jumlah barang
+                                                                    <input type="number" class="form-number text-center" min="1" name="quantity" style="width: 50px;" value=<?= $data['quantity'] ?>>
+                                                                    <hr>
+                                                                    Tulis Catatan
+                                                                    <input class="card card-body" style="height: 5px;" type="text" name="catatan">
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                                    <button type="submit" class="btn btn-primary" style="background-color: #00A445;">Edit</button>
+                                                            </form>
+
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
-                                        </div>
-                                        <div class="collapse" id="catatan2" style="width: 130px;">
-                                            <input class="card card-body" style="height: 5px;" type="text">
+
                                         </div>
                                     </div>
-                                </div>
-
-                            <?php } ?>
-
-
-                            <!-- Kolom kanan Berisi total -->
-                            <div class="col-4 fixed-top offset-8 my-5 py-5">
-                                <div class="card w-75">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ringkasan Belanja</h5>
-                                        <p class="card-text">
-                                        <div class="d-flex justify-content-between">
-                                            <div>Total Harga (n barang)</div>
-                                            <div>Rp67.000</div>
-                                        </div>
-                                        </p>
-                                        <hr>
-                                        <h5 class="card-text pb-2">
-                                            <div class="d-flex justify-content-between">
-                                                <div>Total Harga</div>
-                                                <div>Rp67.000</div>
-                                            </div>
-                                        </h5>
-                                        <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>
+                                    <div class="collapse" id="catatan2" style="width: 130px;">
+                                        <input class="card card-body" style="height: 5px;" type="text">
                                     </div>
                                 </div>
+                        </div>
+
+                    <?php } ?>
+
+
+                    <!-- Kolom kanan Berisi total -->
+                    <div class="col-4 fixed-top offset-8 my-5 py-5">
+                        <div class="card w-75">
+                            <div class="card-body">
+                                <h5 class="card-title">Ringkasan Belanja</h5>
+                                <p class="card-text">
+                                <div class="d-flex justify-content-between">
+                                    <div>Total Harga (n barang)</div>
+                                    <div>Rp67.000</div>
+                                </div>
+                                </p>
+                                <hr>
+                                <h5 class="card-text pb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>Total Harga</div>
+                                        <div>Rp67.000</div>
+                                    </div>
+                                </h5>
+                                <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
+            </div>
     </section>
     <!-- <script src="js/scripts.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

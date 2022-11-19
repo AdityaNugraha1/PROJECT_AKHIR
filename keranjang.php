@@ -148,7 +148,7 @@ if (empty($_SESSION['username'])) {
                                                 <img src="img/<?= $data['foto'] ?>" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
                                                 <p class="ps-4"><?= $data['penjelasan'] ?></p>
                                             </div>
-                                            <h5>Rp<?= $data['price'] ?></h5>
+                                            <h5>Rp<?= $data['price'] ?> x <?= $data['quantity'] ?></h5>
                                         </div>
 
                                         <div class="d-flex ps-3 justify-content-end">

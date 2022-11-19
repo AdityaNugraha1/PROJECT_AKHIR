@@ -88,12 +88,12 @@ if (empty($_SESSION['username'])) {
                                                 <img src="img/sampah.svg" width="18px" class="mx-0 my-0">
                                             </button>
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop1" style="background-color: #00A445;">
+                                            <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="background-color: #00A445;">
                                                 Edit Pesanan
                                             </button>
 
                                             <!-- Modal -->
-                                            <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
@@ -132,6 +132,7 @@ if (empty($_SESSION['username'])) {
                                     ON b.productid=c.productid where a.username='$username';";
 
                             $query    = mysqli_query($connect, $sql);
+                            $jumlah = 0;
 
                             while ($data = mysqli_fetch_array($query)) {
                             ?>
@@ -157,12 +158,12 @@ if (empty($_SESSION['username'])) {
                                                     <img src="img/sampah.svg" width="18px" class="mx-0 my-0">
                                                 </button>
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop2" style="background-color: #00A445;">
+                                                <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['keranjangid'] ?>" style="background-color: #00A445;">
                                                     Edit Pesanan
                                                 </button>
 
                                                 <!-- Modal -->
-                                                <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                                <div class="modal fade" id="staticBackdrop<?= $data['keranjangid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -171,7 +172,7 @@ if (empty($_SESSION['username'])) {
                                                             </div>
                                                             <form method="POST" action="keranjang_edit.php">
                                                                 <div class="modal-body">
-                                                                    <input type="hidden" name="idedit" value=<?=$data['orderlineid']?>>
+                                                                    <input type="hidden" name="idedit" value=<?= $data['orderlineid'] ?>>
                                                                     Ganti Jumlah barang
                                                                     <input type="number" class="form-number text-center" min="1" name="quantity" style="width: 50px;" value=<?= $data['quantity'] ?>>
                                                                     <hr>
@@ -195,10 +196,12 @@ if (empty($_SESSION['username'])) {
                                     </div>
                                 </div>
                         </div>
+                        <?php
+                            $jumlah++;
+                            } 
+                        ?>
 
-                    <?php } ?>
-
-
+                    <!-- jumlah  -->
                     <!-- Kolom kanan Berisi total -->
                     <div class="col-4 fixed-top offset-8 my-5 py-5">
                         <div class="card w-75">
@@ -206,7 +209,7 @@ if (empty($_SESSION['username'])) {
                                 <h5 class="card-title">Ringkasan Belanja</h5>
                                 <p class="card-text">
                                 <div class="d-flex justify-content-between">
-                                    <div>Total Harga (n barang)</div>
+                                    <div>Total Harga (<?= $jumlah ?> barang)</div>
                                     <div>Rp67.000</div>
                                 </div>
                                 </p>

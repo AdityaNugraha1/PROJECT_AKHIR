@@ -64,6 +64,7 @@ if (empty($_SESSION['username'])) {
                             Pilih Semua
                         </label>
                     </div>
+
                     <div class="card">
                         <div class="card-body">
                             <!-- ganti barang -->
@@ -126,7 +127,9 @@ if (empty($_SESSION['username'])) {
                             <?php
                             include('koneksi.php');
                             $username = $_SESSION['username'];
-                            $sql    = "SELECT * FROM `keranjang` INNER JOIN orderline ON keranjang.orderlineid = orderline.orderlineid INNER JOIN orderstatus ON keranjang.orderstatusid = orderstatus.orderstatusid INNER JOIN user ON keranjang.username = user.username; " ;
+                            $sql = "SELECT a.keranjangid, a.orderlineid, a.total_harga, b.productid, b.quantity, c.name, c.penjelasan, c.foto, c.price 
+                                    FROM keranjang a INNER JOIN orderline b ON a.orderlineid=b.orderlineid INNER JOIN product c 
+                                    ON b.productid=c.productid where a.username='$username';";
 
                             $query    = mysqli_query($connect, $sql);
                             $jumlah = 0;

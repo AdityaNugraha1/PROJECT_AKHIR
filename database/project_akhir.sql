@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 02:55 PM
+-- Generation Time: Nov 19, 2022 at 02:57 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -32,7 +32,8 @@ CREATE TABLE `keranjang` (
   `username` varchar(20) NOT NULL,
   `total_harga` int(10) NOT NULL,
   `productid` int(11) NOT NULL,
-  `quantity` int(3) NOT NULL
+  `quantity` int(3) NOT NULL,
+  `catatanorder` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

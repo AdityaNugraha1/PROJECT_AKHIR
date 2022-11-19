@@ -78,6 +78,7 @@ if (empty($_SESSION['username'])) {
 
                             $query    = mysqli_query($connect, $sql);
                             $jumlah = 0;
+                            $totalharga = 0;
 
                             while ($data = mysqli_fetch_array($query)) {
                             ?>
@@ -94,8 +95,8 @@ if (empty($_SESSION['username'])) {
                                                 <p class="ps-4"><?= $data['penjelasan'] ?></p>
                                             </div>
                                             <div class="d-flex justify-content-between">
-                                                <h5>Rp<?= $data['price'] ?> x <?= $data['quantity'] ?></h5>
-                                                <h5>Rp<?= $data['total_harga'] ?></h5>
+                                                <h5>Rp<?= number_format($data['price'],0,"",".") ?> x <?= $data['quantity'] ?></h5>
+                                                <h5>Rp<?= number_format($data['total_harga'],0,"",".") ?></h5>
                                             </div>
 
                                         </div>
@@ -166,6 +167,7 @@ if (empty($_SESSION['username'])) {
                                 </div>
                             <?php
                                 $jumlah++;
+                                $totalharga=$totalharga+$data['total_harga'];
                             }
                             ?>
 
@@ -178,14 +180,14 @@ if (empty($_SESSION['username'])) {
                                         <p class="card-text">
                                         <div class="d-flex justify-content-between">
                                             <div>Total Harga (<?= $jumlah ?> barang)</div>
-                                            <div>Rp67.000</div>
+                                            <div><?= number_format($totalharga,0,"",".") ?></div>
                                         </div>
                                         </p>
                                         <hr>
                                         <h5 class="card-text pb-2">
                                             <div class="d-flex justify-content-between">
                                                 <div>Total Harga</div>
-                                                <div>Rp67.000</div>
+                                                <div><?= number_format($totalharga,0,"",".") ?></div>
                                             </div>
                                         </h5>
                                         <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>

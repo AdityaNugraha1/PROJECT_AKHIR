@@ -92,6 +92,7 @@ if (empty($_SESSION['username'])) {
 
                     $sql   = "SELECT * FROM product";
                     $query  = mysqli_query($connect, $sql);
+                    $username = $_SESSION['username'];
                     while ($data = mysqli_fetch_array($query)) {
                     ?>
                         <div class="col">
@@ -117,6 +118,7 @@ if (empty($_SESSION['username'])) {
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
+                                                        <input type="hidden" value="<?= $username; ?>" name="<?= $username; ?>">
                                                         <input type="hidden" value="<?= $data['productid']; ?>" name="productid">
                                                         Jumlah barang
                                                         <input type="number" name="quantity" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">

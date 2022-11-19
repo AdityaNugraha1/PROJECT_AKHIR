@@ -15,11 +15,19 @@ if (empty($_SESSION['username'])) {
     <link rel="stylesheet" href="style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script>
-        function toggle(source) {
+        function toggle() {
             checkboxes = document.querySelectorAll('[id$="_item"]');
             for (var i = 0, n = checkboxes.length; i < n; i++) {
-                checkboxes[i].checked = source.checked;
+                checkboxes[i].checked = true;
             }
+        }
+
+        function centang(a) {
+        let total = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        if (a==1) {
+            total--;
+        }
+        document.getElementById("totalCentang").innerHTML = "Total Harga (" + total + " barang)";
         }
     </script>
 </head>
@@ -59,7 +67,7 @@ if (empty($_SESSION['username'])) {
                 <div class="col-7">
                     <h3>Keranjang</h3>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="cekPilih" onClick="toggle(this)">
+                        <input class="form-check-input" type="checkbox" id="cekPilih" onClick="toggle()" onchange="centang(1)">
                         <label class="form-check-label" for="cekPilih">
                             Pilih Semua
                         </label>
@@ -85,7 +93,7 @@ if (empty($_SESSION['username'])) {
 
                                 <div class="card border-light">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="<?= $data['keranjangid'] ?>">
+                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="<?= $data['keranjangid'] ?>" onchange="centang(0)">
                                         <label class="form-check-label" for="item">
                                             <h5><?= $data['name'] ?></h5>
                                         </label>
@@ -98,19 +106,27 @@ if (empty($_SESSION['username'])) {
                                                 <h5>Rp. <?= number_format($data['price'],0,"",".") ?> x <?= $data['quantity'] ?></h5>
                                                 <h5>Rp. <?= number_format($data['total_harga'],0,"",".") ?></h5>
                                             </div>
-
+                                            <div class="d-flex">
+                                                <a> Catatan :</a>
+                                                <a style="text-decoration:none;"><?= $data['catatanorder'] ?><a>
+                                            </div>
                                         </div>
 
-                                        <div class="d-flex ps-3 justify-content-end">
+                                        <div class="d-flex ps-3 justify-content-between">
+                                            <div id="catatan2" style="max-width: 30ch;">
+                                            <label for="exampleInputEmail1">Catatan</label>
+                                            <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                            <?= $data['catatanorder'] ?></p>
+                                            </div>
                                             <div class="d-flex justify-content-center">
                                                 <button class="btn btn-default pt-0 pb-1 px-1">
-                                                    <img src="img/sampah.svg" width="18px" class="mx-0 my-0" data-bs-toggle="modal" data-bs-target="#staticBackdroph<?= $data['keranjangid'] ?>">
+                                                    <img src="img/sampah.svg" width="18px" class="pt-1 pb-1 mt-auto mb-auto" data-bs-toggle="modal" data-bs-target="#staticBackdroph<?= $data['keranjangid'] ?>">
                                                 </button>
 
 
 
                                                 <!-- Button trigger modal -->
-                                                <button type="button" class="btn btn-primary pt-1 pb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['keranjangid'] ?>" style="background-color: #00A445;">
+                                                <button type="button" class="btn btn-primary pt-1 pb-1 mt-auto mb-auto" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['keranjangid'] ?>" style="background-color: #00A445;">
                                                     Edit Pesanan
                                                 </button>
 
@@ -157,7 +173,6 @@ if (empty($_SESSION['username'])) {
                                                         </div>
                                                     </div>
                                                 </div>
-
                                             </div>
                                         </div>
                                         <div class="collapse" id="catatan2" style="width: 130px;">
@@ -179,8 +194,14 @@ if (empty($_SESSION['username'])) {
                                         <h5 class="card-title">Ringkasan Belanja</h5>
                                         <p class="card-text">
                                         <div class="d-flex justify-content-between">
+<<<<<<< HEAD
                                             <div>Total Harga (<?= $jumlah ?> barang)</div>
                                             <div>Rp. <?= number_format($sumharga,0,"",".") ?></div>
+=======
+                                        <label id="totalCentang">Total Harga (0 barang)</label>
+
+                                            <div><?= number_format($sumharga,0,"",".") ?></div>
+>>>>>>> 0eff00e2c223a447c13742ae898cc97d8b8d913d
                                         </div>
                                         </p>
                                         <hr>

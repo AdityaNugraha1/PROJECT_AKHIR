@@ -5,6 +5,7 @@ include 'koneksi.php';
 	$name 		= $_POST['name'];
 	$price 		= $_POST['price'];
 	$penjelasan = $_POST['penjelasan'];
+	$productid	= "";
 	move_uploaded_file($file_tmp, 'img/'.$foto);
 
 	$sql	= "INSERT INTO product VALUES('$productid', '$name', '$price', '$foto', '$penjelasan')";

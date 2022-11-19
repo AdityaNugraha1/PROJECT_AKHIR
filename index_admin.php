@@ -87,10 +87,6 @@ if (empty($_SESSION['username'])) {
         </button>
     </div>
     <div id="produk">
-         <?php
-        include 'koneksi.php';
-        $productid = $_GET['productid'];
-        ?>
         <div class="p-3 m-0 border-0">
             <div class="container text-center">
                 <div class="row">
@@ -110,16 +106,13 @@ if (empty($_SESSION['username'])) {
                                     <h5 class="card-title"><?= $data['name']; ?></h5>
                                     <h6 class="card-title">Rp. <?= $data['price']; ?></h6>
                                     <p class="card-text"><?= $data['penjelasan']; ?></p>
-                                    <button type="button" class="btn btn-primary pt-1 pb-1 mb-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop<?= $data['productid']; ?>" style="background-color: #00A445; width: 80%;">
-                                        Masukkan Keranjang
-                                    </button>
                                     <a href=index_admin_delete.php?productid=<?php echo $data['productid'];?>>
                                     <button type="button" class="btn btn-primary pt-1 pb-1 mb-2" style="background-color: #00A445; width: 80%;">
-                                        Hapus Keranjang
+                                        Hapus Barang
                                     </button></a>
                                     <a href=index_admin_edit.php>
                                     <button type="button" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
-                                        Edit Keranjang
+                                        Edit Barang
                                     </button></a>
 
 

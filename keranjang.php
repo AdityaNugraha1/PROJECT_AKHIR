@@ -21,6 +21,14 @@ if (empty($_SESSION['username'])) {
                 checkboxes[i].checked = source.checked;
             }
         }
+
+        function centang(a) {
+        let total = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        if (a==1) {
+            total--;
+        }
+        document.getElementById("totalCentang").innerHTML = "Total Harga (" + total + " barang)";
+        }
     </script>
 </head>
 
@@ -59,7 +67,7 @@ if (empty($_SESSION['username'])) {
                 <div class="col-7">
                     <h3>Keranjang</h3>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="cekPilih" onClick="toggle(this)">
+                        <input class="form-check-input" type="checkbox" id="cekPilih" onClick="toggle(this)" onchange="centang(1)">
                         <label class="form-check-label" for="cekPilih">
                             Pilih Semua
                         </label>
@@ -85,7 +93,7 @@ if (empty($_SESSION['username'])) {
 
                                 <div class="card border-light">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="<?= $data['keranjangid'] ?>">
+                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="<?= $data['keranjangid'] ?>" onchange="centang(0)">
                                         <label class="form-check-label" for="item">
                                             <h5><?= $data['name'] ?></h5>
                                         </label>
@@ -180,7 +188,8 @@ if (empty($_SESSION['username'])) {
                                         <h5 class="card-title">Ringkasan Belanja</h5>
                                         <p class="card-text">
                                         <div class="d-flex justify-content-between">
-                                            <div>Total Harga (<?= $jumlah ?> barang)</div>
+                                        <label id="totalCentang">Total Harga (0 barang)</label>
+
                                             <div><?= number_format($sumharga,0,"",".") ?></div>
                                         </div>
                                         </p>

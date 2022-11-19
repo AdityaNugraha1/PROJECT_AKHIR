@@ -110,13 +110,21 @@ if (empty($_SESSION['username'])) {
                                         Hapus Keranjang
                                     </button></a>
                                     <a href=index_admin_edit.php>
-                                    <button type="button" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
+                                    <form action="index_admin_edit.php" method="post">
+                                        <input type="hidden" name="productid" value="<?= $data['productid']; ?>">
+                                        <input type="hidden" name="name" value="<?= $data['name']; ?>">
+                                        <input type="hidden" name="penjelasan" value="<?= $data['penjelasan']; ?>">
+                                        <input type="hidden" name="price" value="<?= $data['price']; ?>">
+                                        <button type="submit" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
                                         Edit Keranjang
                                     </button></a>
+                                    </form>
+                                        
 
 
                                     <div class="modal fade" id="staticBackdrop<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <form method="POST" action="index_login_proses.php">
+                                        <form method="POST" action="index_admin_edit.php">
+                                            
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -124,7 +132,6 @@ if (empty($_SESSION['username'])) {
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <input type="hidden" value="<?= $data['productid']; ?>" name="productid">
                                                         Jumlah barang
                                                         <input type="number" name="quantity" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
                                                         <hr>

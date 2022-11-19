@@ -103,8 +103,8 @@ if (empty($_SESSION['username'])) {
                                                 <p class="ps-4"><?= $data['penjelasan'] ?></p>
                                             </div>
                                             <div class="d-flex justify-content-between">
-                                                <h5>Rp. <?= number_format($data['price'],0,"",".") ?> x <?= $data['quantity'] ?></h5>
-                                                <h5>Rp. <?= number_format($data['total_harga'],0,"",".") ?></h5>
+                                                <h5>Rp<?= number_format($data['price'],0,"",".") ?> x <?= $data['quantity'] ?></h5>
+                                                <h5>Rp<?= number_format($data['total_harga'],0,"",".") ?></h5>
                                             </div>
                                             <div class="d-flex">
                                                 <a> Catatan :</a>
@@ -194,14 +194,9 @@ if (empty($_SESSION['username'])) {
                                         <h5 class="card-title">Ringkasan Belanja</h5>
                                         <p class="card-text">
                                         <div class="d-flex justify-content-between">
-<<<<<<< HEAD
-                                            <div>Total Harga (<?= $jumlah ?> barang)</div>
-                                            <div>Rp. <?= number_format($sumharga,0,"",".") ?></div>
-=======
                                         <label id="totalCentang">Total Harga (0 barang)</label>
 
-                                            <div><?= number_format($sumharga,0,"",".") ?></div>
->>>>>>> 0eff00e2c223a447c13742ae898cc97d8b8d913d
+                                            <div>Rp. <?= number_format($sumharga,0,"",".") ?></div>
                                         </div>
                                         </p>
                                         <hr>
@@ -211,7 +206,7 @@ if (empty($_SESSION['username'])) {
                                                 <div>Rp. <?= number_format($sumharga,0,"",".") ?></div>
                                             </div>
                                         </h5>
-                                        <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli</a>
+                                        <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>
                                     </div>
                                 </div>
                             </div>

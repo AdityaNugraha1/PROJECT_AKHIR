@@ -50,8 +50,9 @@ if($_SESSION['level']!="admin"){
 									<input type="file" name="foto" class="form-control" id="exampleFormControlInput1">
 								</div>
 								<br>
-								<div class="container text-center" style="width:541px; padding-top: 20px; padding-bottom: 127px;">
-									<div>
+								<div class="container text-center" style="width:541px; padding-bottom: 127px;margin-left: -21px;">
+									<div> <a href="index_admin.php">
+										<button type="button" class="btn btn-primary" style=" background-color: #00A445;">Kembali</button></a>
 										<button type="submit" class="btn btn-primary" style=" background-color: #00A445;">Submit</button>
 									</div>
 								</div>

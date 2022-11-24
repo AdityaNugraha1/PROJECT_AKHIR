@@ -3,6 +3,8 @@ session_start();
 if (empty($_SESSION['username'])) {
     header("location:login.php?message=belum_login");
 }
+
+// $totalHarga = array();
 ?>
 
 <!doctype html>
@@ -15,19 +17,29 @@ if (empty($_SESSION['username'])) {
     <link rel="stylesheet" href="style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script>
-        function toggle() {
+        // let jumlahHarga=0;
+
+        function toggle(source) {
             checkboxes = document.querySelectorAll('[id$="_item"]');
-            for (var i = 0, n = checkboxes.length; i < n; i++) {
-                checkboxes[i].checked = true;
+            for (let i = 0, n = checkboxes.length; i < n; i++) {
+                checkboxes[i].checked = source.checked;
             }
         }
 
-        function centang(a) {
-        let total = document.querySelectorAll('input[type="checkbox"]:checked').length;
-        if (a==1) {
-            total--;
-        }
-        document.getElementById("totalCentang").innerHTML = "Total Harga (" + total + " barang)";
+        function centang() {
+            let total = document.querySelectorAll('[id$="_item"]:checked').length;
+            document.getElementById("totalCentang").innerHTML = total;
+            document.getElementById("beli").innerHTML = "Beli ("+total+")";
+
+
+            // jumlahHarga = jumlahHarga + harga;
+
+            // var input = document.querySelectorAll('[id$="_item"]');
+            //     if (input[i].checked) {
+            //         jumlahHarga+=harga;
+            //     }
+            
+            // document.getElementById("totalHarga").innerHTML = "Rp. " + jumlahHarga;
         }
     </script>
 </head>
@@ -67,7 +79,7 @@ if (empty($_SESSION['username'])) {
                 <div class="col-7">
                     <h3>Keranjang</h3>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="cekPilih" onClick="toggle()" onchange="centang(1)">
+                        <input class="form-check-input" type="checkbox" id="cekPilih" onClick="toggle(this)" onchange="centang(0)">
                         <label class="form-check-label" for="cekPilih">
                             Pilih Semua
                         </label>
@@ -85,15 +97,15 @@ if (empty($_SESSION['username'])) {
                                     ON a.productid=c.productid where a.username='$username';";
 
                             $query    = mysqli_query($connect, $sql);
-                            $jumlah = 0;
-                            $sumharga = 0;
+                            // $jumlah = 0;
+                            // $sumharga = 0;
 
                             while ($data = mysqli_fetch_array($query)) {
                             ?>
 
                                 <div class="card border-light">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="<?= $data['keranjangid'] ?>" onchange="centang(0)">
+                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="<?= $data['keranjangid'] ?>" value="<?= $data['keranjangid'] ?>" onchange="centang()">
                                         <label class="form-check-label" for="item">
                                             <h5><?= $data['name'] ?></h5>
                                         </label>
@@ -103,21 +115,21 @@ if (empty($_SESSION['username'])) {
                                                 <p class="ps-4"><?= $data['penjelasan'] ?></p>
                                             </div>
                                             <div class="d-flex justify-content-between">
-                                                <h5>Rp<?= number_format($data['price'],0,"",".") ?> x <?= $data['quantity'] ?></h5>
-                                                <h5>Rp<?= number_format($data['total_harga'],0,"",".") ?></h5>
+                                                <h5>Rp<?= number_format($data['price'], 0, "", ".") ?> x <?= $data['quantity'] ?></h5>
+                                                <h5>Rp<?= number_format($data['total_harga'], 0, "", ".") ?></h5>
                                             </div>
-                                            <div class="d-flex">
-                                                <a> Catatan :</a>
-                                                <a style="text-decoration:none;"><?= $data['catatanorder'] ?><a>
+                                            <div class="d-flex gap-1">
+                                                <p> Catatan :</p>
+                                                <p style="text-decoration:none;"><?= $data['catatanorder'] ?><p>
                                             </div>
                                         </div>
 
-                                        <div class="d-flex ps-3 justify-content-between">
-                                            <div id="catatan2" style="max-width: 30ch;">
-                                            <label for="exampleInputEmail1">Catatan</label>
-                                            <p class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                            <?= $data['catatanorder'] ?></p>
-                                            </div>
+                                        <div class="d-flex ps-3 justify-content-end">
+                                            <!-- <div id="catatan2" style="max-width: 30ch;">
+                                                <label for="catatan">Catatan</label>
+                                                <p class="form-control" id="catatan" aria-describedby="emailHelp">
+                                                    <?= $data['catatanorder'] ?></p>
+                                            </div> -->
                                             <div class="d-flex justify-content-center">
                                                 <button class="btn btn-default pt-0 pb-1 px-1">
                                                     <img src="img/sampah.svg" width="18px" class="pt-1 pb-1 mt-auto mb-auto" data-bs-toggle="modal" data-bs-target="#staticBackdroph<?= $data['keranjangid'] ?>">
@@ -140,7 +152,7 @@ if (empty($_SESSION['username'])) {
                                                             </div>
                                                             <form method="POST" action="keranjang_edit.php">
                                                                 <div class="modal-body">
-                                                                    <input type="hidden" name="price" value="<?=$data['price']?>">
+                                                                    <input type="hidden" name="price" value="<?= $data['price'] ?>">
                                                                     <input type="hidden" name="idedit" value=<?= $data['keranjangid'] ?>>
                                                                     Ganti Jumlah barang
                                                                     <input type="number" class="form-number text-center" min="1" name="quantity" style="width: 50px;" value=<?= $data['quantity'] ?>>
@@ -160,16 +172,16 @@ if (empty($_SESSION['username'])) {
                                                 <div class="modal fade" id="staticBackdroph<?= $data['keranjangid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
-                                                        <form method="POST" action="keranjang_hapus.php">
-                                                            <div class="modal-body text-center">
-                                                                <h5>Yakin ingin hapus dari keranjang?</h5>
-                                                                <input type="hidden" name="idhapus" value=<?= $data['keranjangid'] ?>>
-                                                            </div>
-                                                            <div class="modal-footer justify-content-center">
-                                                                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
-                                                                <button type="submit" class="btn btn-danger">Ya</button>
-                                                            </div>
-                                                        </form>
+                                                            <form method="POST" action="keranjang_hapus.php">
+                                                                <div class="modal-body text-center">
+                                                                    <h5>Yakin ingin hapus dari keranjang?</h5>
+                                                                    <input type="hidden" name="idhapus" value=<?= $data['keranjangid'] ?>>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-center">
+                                                                    <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Tidak</button>
+                                                                    <button type="submit" class="btn btn-danger">Ya</button>
+                                                                </div>
+                                                            </form>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -181,8 +193,8 @@ if (empty($_SESSION['username'])) {
                                     </div>
                                 </div>
                             <?php
-                                $jumlah++;
-                                $sumharga=$sumharga+$data['total_harga'];
+                                // $jumlah++;
+                                // $sumharga = $sumharga + $data['total_harga'];
                             }
                             ?>
 
@@ -194,19 +206,18 @@ if (empty($_SESSION['username'])) {
                                         <h5 class="card-title">Ringkasan Belanja</h5>
                                         <p class="card-text">
                                         <div class="d-flex justify-content-between">
-                                        <label id="totalCentang">Total Harga (0 barang)</label>
-
-                                            <div><?= number_format($sumharga,0,"",".") ?></div>
+                                            Total Barang
+                                            <label id="totalCentang">0</label>
                                         </div>
                                         </p>
                                         <hr>
-                                        <h5 class="card-text pb-2">
+                                        <!-- <h5 class="card-text pb-2">
                                             <div class="d-flex justify-content-between">
                                                 <div>Total Harga</div>
-                                                <div><?= number_format($sumharga,0,"",".") ?></div>
+                                                <label id="totalHarga">Rp. 0</label>
                                             </div>
-                                        </h5>
-                                        <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">Beli (n)</a>
+                                        </h5> -->
+                                        <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;"><label id="beli">Beli (0)</label></a>
                                     </div>
                                 </div>
                             </div>

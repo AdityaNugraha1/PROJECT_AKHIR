@@ -37,61 +37,63 @@
       </div>
     </div>
   </nav>
-  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="2000">
-      <img src="asset/slide1.jpg" class="d-block w-100 h-100" alt="...">
-    </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="asset/slide2.jpg" class="d-block w-100 h-100" alt="...">
-    </div>
-    <div class="carousel-item">
-      <img src="asset/logo-panjang.png" class="d-block w-100 h-100" alt="...">
+  <div class="container autoslide d-flex justify-content-center align-item-center">
+    <div id="carouselExampleInterval" class="carousel slide d-flex align-items-stretch" data-bs-ride="carousel" style="height:200px; margin: 90px 0px; border-radius:20px;">
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="5000">
+          <img src="asset/slide1.png" class="d-block w-100">
+        </div>
+        <div class="carousel-item" data-bs-interval="5000">
+          <img src="asset/slide2.png" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="asset/slide3.png" class="d-block w-100">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
 
 
-<div id="produk">
-  <div class="p-3 m-0 border-0">
-    <div class="container text-center">
-      <div class="row">
-        <?php
-            include('koneksi.php');
+  <div id="produk">
+    <div class="p-3 m-0 border-0">
+      <div class="container text-center">
+        <div class="row">
+          <?php
+          include('koneksi.php');
 
-            $sql   = "SELECT * FROM product";
-            $query  = mysqli_query($connect, $sql);
-            while ($data = mysqli_fetch_array($query)) {
-            ?>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <div class="m-2 p-1" style="height:270px;">
-              <img src="img/<?php echo $data['foto'];?>" class="card-img-top">
+          $sql   = "SELECT * FROM product";
+          $query  = mysqli_query($connect, $sql);
+          while ($data = mysqli_fetch_array($query)) {
+          ?>
+            <div class="col">
+              <div class="card" style="width: 18rem;">
+                <div class="m-2 p-1" style="height:270px;">
+                  <img src="img/<?php echo $data['foto']; ?>" class="card-img-top">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"><?= $data['name']; ?></h5>
+                  <h6 class="card-title">Rp. <?= number_format($data['price'], 0, "", ".") ?></h6>
+                  <p class="card-text"><?= $data['penjelasan']; ?></p>
+                  <a href=index_admin_edit.php>
+                    <button type="button" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
+                      Masukkan Keranjang
+                    </button></a>
+                </div>
+              </div>
             </div>
-            <div class="card-body">
-              <h5 class="card-title"><?= $data['name']; ?></h5>
-              <h6 class="card-title">Rp. <?= number_format($data['price'],0,"",".") ?></h6>
-              <p class="card-text"><?= $data['penjelasan']; ?></p>
-              <a href=index_admin_edit.php>
-              <button type="button" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
-                  Masukkan Keranjang
-              </button></a>
-            </div>
-          </div>
-        </div>  
- <?php } ?>
+          <?php } ?>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
   <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 mt-5 background-primary">
@@ -103,4 +105,3 @@
 
 
 </html>
-

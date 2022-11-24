@@ -38,35 +38,9 @@
     </div>
   </nav>
 
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="asset/slide1.jpg" class="d-block w-100 h-100" alt="..." style="position: absolute; bottom: 0; left: 0; right: 0; padding-bottom: 0px;">
-        <div class="carousel-caption d-none d-md-block" style="color: black;">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="asset/slide2.jpg" class="d-block w-100 h-100" alt="..." style="position: absolute; bottom: 0; left: 0; right: 0; padding-bottom: 0px;">
-        <div class="carousel-caption d-none d-md-block" style="color: black;">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="asset/logo.png" class="d-block w-100 h-100" alt="..." style="position: absolute; bottom: 0; left: 0; right: 0; padding-bottom: 0px;">
-        <div class="carousel-caption d-none d-md-block" style="color: black;">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-    </div>
+ <div>
+   <img src="asset/logo-panjang.png">
+ </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
@@ -109,6 +83,7 @@
   </div>
 </div>
 
+
   <div class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 mt-5 background-primary">
     <div class="text-white mb-3 mb-md-0">
       Copyright © 2022. All rights reserved.
@@ -118,3 +93,4 @@
 
 
 </html>
+

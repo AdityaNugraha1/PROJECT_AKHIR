@@ -34,20 +34,3 @@ height: 100%;
 body {
     font-family: 'Montserrat', sans-serif;
 }
-
-.autoslide{
-    max-width:800px;
-    border-radius:20px;
-}
-
-.carousel{
-    margin-top:70px;
-    margin-bottom:100px;
-}
-
-.crousel-item img {
-    position: absolute;
-    object-fit:cover;
-    top: 0;
-    left: 0;
-}

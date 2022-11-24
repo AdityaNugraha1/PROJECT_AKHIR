@@ -37,8 +37,8 @@
       </div>
     </div>
   </nav>
-  <div class="container autoslide d-flex justify-content-center align-item-center">
-    <div id="carouselExampleInterval" class="carousel slide d-flex align-items-stretch" data-bs-ride="carousel" style="height:200px; margin: 90px 0px; border-radius:20px;">
+  <div class="container d-flex justify-content-center align-item-center">
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel" style="height:200px; margin: 80px 50px 140px;">
       <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="5000">
           <img src="asset/slide1.png" class="d-block w-100">
@@ -50,11 +50,11 @@
           <img src="asset/slide3.png" class="d-block w-100">
         </div>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev" style="padding-top:60px;">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next" style="padding-top:60px;">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>

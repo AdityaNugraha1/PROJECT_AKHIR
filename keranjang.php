@@ -179,42 +179,45 @@ if (empty($_SESSION['username'])) {
                                 $totalharga = $totalharga + $data['total_harga'];
                             }
                             ?>
-
-                            <!-- jumlah  -->
-                            <!-- Kolom kanan Berisi total -->
-                            <div class="col-4 fixed-top offset-8 my-5 py-5">
-                                <div class="card w-75">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Ringkasan Belanja</h5>
-                                        <p class="card-text">
-                                        <div class="d-flex justify-content-between">
-                                            <div>Total Harga (<?= $jumlah ?> barang)</div>
-                                            <div><?= number_format($totalharga, 0, "", ".") ?></div>
-                                        </div>
-                                        </p>
-                                        <hr>
-                                        <h5 class="card-text pb-2">
-                                            <div class="d-flex justify-content-between">
-                                                <div>Total Harga</div>
-                                                <div><?= number_format($totalharga, 0, "", ".") ?></div>
-                                            </div>
-                                        </h5>
-                                        <form action="keranjang_proses.php" method="post">
-                                            <?php
-                                            $query    = mysqli_query($connect, $sql);
-                                            while ($data = mysqli_fetch_array($query)) {
-                                            ?>
-                                                <input type="hidden" name="keranjang[]" value="<?= $data['keranjangid'] ?>">
-                                            <?php } ?>
-                                            <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
+                        <!-- jumlah  -->
+                        <!-- Kolom kanan Berisi total -->
                     </div>
                 </div>
+                    <div class="col-4 fixed-top offset-8 my-5 py-5">
+                        <div class="card w-75">
+                            <div class="card-body">
+                                <h5 class="card-title">Ringkasan Belanja</h5>
+                                <p class="card-text">
+                                <div class="d-flex justify-content-between">
+                                    <div>Total Harga (<?= $jumlah ?> barang)</div>
+                                    <div><?= number_format($totalharga, 0, "", ".") ?></div>
+                                </div>
+                                </p>
+                                <hr>
+                                <h5 class="card-text pb-2">
+                                    <div class="d-flex justify-content-between">
+                                        <div>Total Harga</div>
+                                        <div><?= number_format($totalharga, 0, "", ".") ?></div>
+                                    </div>
+                                </h5>
+                                <form action="keranjang_proses.php" method="post">
+                                    <?php
+                                    $query    = mysqli_query($connect, $sql);
+                                    while ($data = mysqli_fetch_array($query)) {
+                                    ?>
+                                        <input type="hidden" name="keranjang[]" value="<?= $data['keranjangid'] ?>">
+                                        <input type="hidden" name="name[]" value="<?= $data['name'] ?>">
+
+                                    <?php } ?>
+                                    <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
     </section>
     <!-- <script src="js/scripts.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

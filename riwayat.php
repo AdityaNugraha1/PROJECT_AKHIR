@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (empty($_SESSION['username'])) {
+    header("location:login.php?message=belum_login");
+}
+?>
+
+
 <!doctype html>
 <html lang="en">
 
@@ -46,67 +54,45 @@
     <section class="vh-100">
         <div class="container text-start pt-5">
             <div class="row pt-5">
-                <div class="col-1">
-                </div>
-
                 <div class="col-7">
-                    <h3>Keranjang</h3>
+                    <h3>Riwayat Pembelian</h3>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="cekPilih" onClick="toggle(this)">
-                        <label class="form-check-label" for="cekPilih">
-                            Pilih Semua
-                        </label>
                     </div>
 
                     <div class="card">
                         <div class="card-body">
-
-                            <!-- ganti barang -->
-                            <?php
-                            include('koneksi.php');
-                            $username = $_SESSION['username'];
-                            $sql = "SELECT a.keranjangid, a.total_harga, a.productid, a.quantity, a.catatanorder, c.name, c.penjelasan, c.foto, c.price 
-                                    FROM keranjang a INNER JOIN product c 
-                                    ON a.productid=c.productid where a.username='$username';";
-
-                            $query    = mysqli_query($connect, $sql);
-                            $jumlah = 0;
-                            $totalharga = 0;
-
-                            while ($data = mysqli_fetch_array($query)) {
-                            ?>
-
-                                <div class="card border-light">
-                                    <div class="card-body">
-                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="<?= $data['keranjangid'] ?>">
-                                        <label class="form-check-label" for="item">
-                                            <h5><?= $data['name'] ?></h5>
-                                        </label>
-                                        <div class="ps-3">
-                                            <div class="d-flex" style="height:100px;">
-                                                <img src="img/<?= $data['foto'] ?>" class="img-fluid rounded-3" alt="Shopping item" style="object-fit: contain; width:100px">
-                                                <p class="ps-4"><?= $data['penjelasan'] ?></p>
-                                            </div>
-                                            <div class="d-flex justify-content-between">
-                                                <h5>Rp<?= number_format($data['price'], 0, "", ".") ?> x <?= $data['quantity'] ?></h5>
-                                                <h5>Rp<?= number_format($data['total_harga'], 0, "", ".") ?></h5>
-                                            </div>
-                                            <div class="d-flex mt-3">
-                                                <a> Catatan :</a>
-                                                <a style="text-decoration:none;"><?= $data['catatanorder'] ?><a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php
-                            }
-                            ?>
-
-                            <div class="col-4 fixed-top offset-8 my-5 py-5">
-                                <div class="card w-75">
-                                    <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;">HAPUS RIWAYAT</a>
-                                </div>
-                            </div>
+                            <table class="table table-striped table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <h4>Waktu</h4>
+                                        </th>
+                                        <th scope="col">
+                                            <h4>Total Harga</h4>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    include('koneksi.php');
+                                    $username = $_SESSION['username'];
+                                    $sql = "SELECT * FROM orderstatus where username='$username';";
+                                    $query    = mysqli_query($connect, $sql);
+                                    while ($data = mysqli_fetch_array($query)) {
+                                    ?>
+                                        <tr>
+                                            <td>
+                                                <h5><?= $data['waktu'] ?></h5>
+                                            </td>
+                                            <td>
+                                                <h5><?= $data['total_harga'] ?></h5>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -184,38 +184,38 @@ if (empty($_SESSION['username'])) {
                         <!-- Kolom kanan Berisi total -->
                     </div>
                 </div>
-                    <div class="col-4 fixed-top offset-8 my-5 py-5">
-                        <div class="card w-75">
-                            <div class="card-body">
-                                <h5 class="card-title">Ringkasan Belanja</h5>
-                                <p class="card-text">
+                <div class="col-4 fixed-top offset-8 my-5 py-5">
+                    <div class="card w-75">
+                        <div class="card-body">
+                            <h5 class="card-title">Ringkasan Belanja</h5>
+                            <p class="card-text">
+                            <div class="d-flex justify-content-between">
+                                <div>Total Harga (<?= $jumlah ?> barang)</div>
+                                <div><?= number_format($totalharga, 0, "", ".") ?></div>
+                            </div>
+                            </p>
+                            <hr>
+                            <h5 class="card-text pb-2">
                                 <div class="d-flex justify-content-between">
-                                    <div>Total Harga (<?= $jumlah ?> barang)</div>
+                                    <div>Total Harga</div>
                                     <div><?= number_format($totalharga, 0, "", ".") ?></div>
                                 </div>
-                                </p>
-                                <hr>
-                                <h5 class="card-text pb-2">
-                                    <div class="d-flex justify-content-between">
-                                        <div>Total Harga</div>
-                                        <div><?= number_format($totalharga, 0, "", ".") ?></div>
-                                    </div>
-                                </h5>
-                                <form action="keranjang_proses.php" method="post">
-                                    <?php
-                                    $query1    = mysqli_query($connect, $sql);
-                                    while ($data1 = mysqli_fetch_array($query1)) {
-                                    ?>
-                                        <input type="hidden" name="keranjang[]" value="<?= $data1['keranjangid'] ?>">
-                                        <input type="hidden" name="name[]" value="<?= $data1['name'] ?>">
+                            </h5>
+                            <form action="keranjang_proses.php" method="post">
+                                <?php
+                                $query1    = mysqli_query($connect, $sql);
+                                while ($data1 = mysqli_fetch_array($query1)) {
+                                ?>
+                                    <input type="hidden" name="keranjang[]" value="<?= $data1['keranjangid'] ?>">
+                                    <input type="hidden" name="name[]" value="<?= $data1['name'] ?>">
 
-                                    <?php } ?>
-                                    <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button>
-                                </form>
-                            </div>
+                                <?php } ?>
+                                <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button>
+                            </form>
                         </div>
                     </div>
-                
+                </div>
+
             </div>
         </div>
     </section>

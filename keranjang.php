@@ -175,8 +175,8 @@ if (empty($_SESSION['username'])) {
                                     </div>
                                 </div>
                             <?php
-                            $jumlah++;
-                            $totalharga=$totalharga+$data['total_harga'];
+                                $jumlah++;
+                                $totalharga = $totalharga + $data['total_harga'];
                             }
                             ?>
 
@@ -188,27 +188,30 @@ if (empty($_SESSION['username'])) {
                                         <h5 class="card-title">Ringkasan Belanja</h5>
                                         <p class="card-text">
                                         <div class="d-flex justify-content-between">
-                                        <div>Total Harga (<?= $jumlah ?> barang)</div>
-                                        <div><?= number_format($totalharga,0,"",".") ?></div>
+                                            <div>Total Harga (<?= $jumlah ?> barang)</div>
+                                            <div><?= number_format($totalharga, 0, "", ".") ?></div>
                                         </div>
                                         </p>
                                         <hr>
                                         <h5 class="card-text pb-2">
                                             <div class="d-flex justify-content-between">
                                                 <div>Total Harga</div>
-                                                <div><?= number_format($totalharga,0,"",".") ?></div>
+                                                <div><?= number_format($totalharga, 0, "", ".") ?></div>
                                             </div>
                                         </h5>
                                         <form action="keranjang_proses.php" method="post">
-                                        <?php while ($data = mysqli_fetch_array($query)) {
-                                         ?>
-                                         <input type="hidden" name="keranjang[]" value="<?= $data['keranjangid'] ?>">
-                                         <?php } ?>
-                                        <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button></form>
+                                            <?php
+                                            $query    = mysqli_query($connect, $sql);
+                                            while ($data = mysqli_fetch_array($query)) {
+                                            ?>
+                                                <input type="hidden" name="keranjang[]" value="<?= $data['keranjangid'] ?>">
+                                            <?php } ?>
+                                            <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

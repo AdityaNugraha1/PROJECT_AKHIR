@@ -32,7 +32,7 @@ if (empty($_SESSION['username'])) {
                         <a class="nav-link active text-white" aria-current="page" href="index_admin.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="index_admin.php#produk">Produk</a>
+                        <a class="nav-link text-white " href="index_admin#produk">Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white " href="index_tambah.php">Tambah Barang</a>
@@ -74,71 +74,71 @@ if (empty($_SESSION['username'])) {
     <div id="produk">
         <div class="p-3 m-0 border-0">
             <div class="container text-center">
-                <div class="row">
-                    <?php
-                    include('koneksi.php');
+            <div class="row">
+                <?php
+                include('koneksi.php');
 
-                    $sql   = "SELECT * FROM product";
-                    $query  = mysqli_query($connect, $sql);
-                    while ($data = mysqli_fetch_array($query)) {
-                    ?>
-                        <div class="col">
-                            <div class="card" style="width: 18rem;">
-                                <div class="m-2 p-1" style="height:270px;">
-                                    <img src="img/<?php echo $data['foto']; ?>" class="card-img-top">
-                                </div>
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $data['name']; ?></h5>
-                                    <h6 class="card-title">Rp. <?= number_format($data['price'],0,"",".") ?></h6>
-                                    <p class="card-text"><?= $data['penjelasan']; ?></p>
-                                    <a href=index_admin_delete.php?productid=<?php echo $data['productid'];?>>
-                                    <button type="button" class="btn btn-primary pt-1 pb-1 mb-2" style="background-color: #00A445; width: 80%;">
-                                        Hapus Keranjang
-                                    </button></a>
-                                    <a href=index_admin_edit.php>
-                                    <form action="index_admin_edit.php" method="post">
-                                        <input type="hidden" name="productid" value="<?= $data['productid']; ?>">
-                                        <input type="hidden" name="name" value="<?= $data['name']; ?>">
-                                        <input type="hidden" name="penjelasan" value="<?= $data['penjelasan']; ?>">
-                                        <input type="hidden" name="price" value="<?= $data['price']; ?>">
-                                        <button type="submit" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
-                                        Edit Keranjang
-                                    </button></a>
-                                    </form>
+                $sql   = "SELECT * FROM product";
+                $query  = mysqli_query($connect, $sql);
+                while ($data = mysqli_fetch_array($query)) {
+                ?>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="m-2 p-1" style="height:270px;">
+                                <img src="img/<?php echo $data['foto']; ?>" class="card-img-top">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title"><?= $data['name']; ?></h5>
+                                <h6 class="card-title">Rp. <?= number_format($data['price'],0,"",".") ?></h6>
+                                <p class="card-text"><?= $data['penjelasan']; ?></p>
+                                <a href=index_admin_delete.php?productid=<?php echo $data['productid'];?>>
+                                <button type="button" class="btn btn-primary pt-1 pb-1 mb-2" style="background-color: #00A445; width: 80%;">
+                                    Hapus Keranjang
+                                </button></a>
+                                <a href=index_admin_edit.php>
+                                <form action="index_admin_edit.php" method="post">
+                                    <input type="hidden" name="productid" value="<?= $data['productid']; ?>">
+                                    <input type="hidden" name="name" value="<?= $data['name']; ?>">
+                                    <input type="hidden" name="penjelasan" value="<?= $data['penjelasan']; ?>">
+                                    <input type="hidden" name="price" value="<?= $data['price']; ?>">
+                                    <button type="submit" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
+                                    Edit Keranjang
+                                </button></a>
+                                </form>
+                                    
+
+
+                                <div class="modal fade" id="staticBackdrop<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <form method="POST" action="index_admin_edit.php">
                                         
-
-
-                                    <div class="modal fade" id="staticBackdrop<?= $data['productid'] ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                                        <form method="POST" action="index_admin_edit.php">
-                                            
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Masukkan Pesanan</h1>
-                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Jumlah barang
-                                                        <input type="number" name="quantity" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
-                                                        <hr>
-                                                        Tulis Catatan
-                                                        <input class="card card-body" style="height: 5px; width: 100%" type="text" name="catatanorder">
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                                                        <button type="submit" class="btn btn-primary " style="background-color: #00A445;">Submit</button>
-                                                    </div>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Masukkan Pesanan</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Jumlah barang
+                                                    <input type="number" name="quantity" class="form-number text-center" min="1" id="customRange3" style="width: 50px; margin-right: -4px;" value="1">
+                                                    <hr>
+                                                    Tulis Catatan
+                                                    <input class="card card-body" style="height: 5px; width: 100%" type="text" name="catatanorder">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                                                    <button type="submit" class="btn btn-primary " style="background-color: #00A445;">Submit</button>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </div>
+                                    </form>
 
-                                    </div>
                                 </div>
-                            </div> 
-                            <br>
-                        </div>
+                            </div>
+                        </div> 
+                        <br>
+                    </div>
 
-                    <?php } ?>
+                <?php } ?>
                 </div>
             </div>
         </div>

@@ -10,10 +10,8 @@ foreach ($_POST['keranjang'] as $idkeranjang) {
         $productid = $data['productid'];
         $quantity = $data['quantity'];
         // $name = $data['name'];
-        date_default_timezone_set('Asia/Jakarta');
-        $waktu = date('d-m-Y H:i:s');
 
-        $insert = "INSERT INTO orderstatus VALUES('', '$waktu', '$username', '$productid', '$total_harga', '$quantity', ' ')";
+        $insert = "INSERT INTO orderstatus VALUES('', NOW(), '$username', '$productid', '$total_harga', '$quantity', ' ')";
         $query1    = mysqli_query($connect, $insert) or die(mysqli_error($connect));
 
     }

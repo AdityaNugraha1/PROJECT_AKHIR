@@ -208,7 +208,8 @@ if (empty($_SESSION['username'])) {
                                 ?>
                                     <input type="hidden" name="keranjang[]" value="<?= $data1['keranjangid'] ?>">
                                     <input type="hidden" name="name[]" value="<?= $data1['name'] ?>">
-
+                                    <input type="hidden" name="total" value="<?= $totalharga ?>">
+                                    <input type="hidden" name="username" value="<?= $username ?>">
                                 <?php } ?>
                                 <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button>
                             </form>

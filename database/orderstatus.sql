@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2022 at 08:47 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.0.13
+-- Generation Time: Nov 26, 2022 at 10:32 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 8.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,10 +31,7 @@ CREATE TABLE `orderstatus` (
   `orderstatusid` int(11) NOT NULL,
   `waktu` datetime NOT NULL,
   `username` varchar(20) NOT NULL,
-  `productid` int(11) NOT NULL,
-  `total_harga` int(10) NOT NULL,
-  `quantity` int(3) NOT NULL,
-  `name` varchar(200) NOT NULL
+  `total_harga` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -46,8 +43,7 @@ CREATE TABLE `orderstatus` (
 --
 ALTER TABLE `orderstatus`
   ADD PRIMARY KEY (`orderstatusid`),
-  ADD KEY `username` (`username`),
-  ADD KEY `productid` (`productid`);
+  ADD KEY `username` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -67,8 +63,7 @@ ALTER TABLE `orderstatus`
 -- Constraints for table `orderstatus`
 --
 ALTER TABLE `orderstatus`
-  ADD CONSTRAINT `orderstatus_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`),
-  ADD CONSTRAINT `orderstatus_ibfk_2` FOREIGN KEY (`productid`) REFERENCES `product` (`productid`);
+  ADD CONSTRAINT `orderstatus_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

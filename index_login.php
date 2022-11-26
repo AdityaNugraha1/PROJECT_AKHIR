@@ -88,7 +88,7 @@ if (empty($_SESSION['username'])) {
                                 <div class="m-2 p-1" style="height:270px;">
                                     <img src="img/<?php echo $data['foto']; ?>" class="card-img-top">
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body" style="height:300px;">
                                     <h5 class="card-title"><?= $data['name']; ?></h5>
                                     <h6 class="card-title">Rp. <?= number_format($data['price'],0,"",".") ?></h6>
                                     <p class="card-text"><?= $data['penjelasan']; ?></p>
@@ -126,6 +126,7 @@ if (empty($_SESSION['username'])) {
                                     </div>
                                 </div>
                             </div>
+                            <br>
                         </div>
                     <?php } ?>
                 </div>

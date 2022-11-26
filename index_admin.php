@@ -32,7 +32,7 @@ if (empty($_SESSION['username'])) {
                         <a class="nav-link active text-white" aria-current="page" href="index_admin.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="#produk">Produk</a>
+                        <a class="nav-link text-white " href="index_admin.php#produk">Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white " href="index_tambah.php">Tambah Barang</a>

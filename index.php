@@ -25,10 +25,13 @@
             <a class="nav-link active text-white" aria-current="page" href="index.php">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white " href="#produk">Produk</a>
+            <a class="nav-link text-white " href="index.php#produk">Produk</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-white " href="keranjang.php">Keranjang</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white " href="riwayat.php">Riwayat</a>
           </li>
         </ul>
         <a class="d-flex" href="login.php" style="text-decoration: none;">

@@ -1,9 +1,20 @@
 <?php
 include 'koneksi.php';
 
-$idkeranjang	= $_POST['keranjang'];
+foreach ($_POST['keranjang'] as $idkeranjang) 
+{
+    $query    = mysqli_query($connect, $sql);
 
-echo implode(", ", $idkeranjang); // Will output email1@email.com, email2@email.com ...
+    
+        $sql = "Select * from keranjang where keranjangid='$idkeranjang'";
+        $query    = mysqli_query($connect, $sql);
+        while ($data = mysqli_fetch_array($query)){
 
-
-?>
+        $sql = "insert into .......... values($data['username'].............."
+            $data['username']
+            $data['total_harga']
+            $data['productid']
+            $data['quantity']
+            $data['name']
+        }
+}

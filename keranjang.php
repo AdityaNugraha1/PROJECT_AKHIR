@@ -4,7 +4,6 @@ if (empty($_SESSION['username'])) {
     header("location:login.php?message=belum_login");
 }
 
-// $totalHarga = array();
 ?>
 
 <!doctype html>
@@ -17,8 +16,6 @@ if (empty($_SESSION['username'])) {
     <link rel="stylesheet" href="style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <script>
-        // let jumlahHarga=0;
-
         function toggle(source) {
             checkboxes = document.querySelectorAll('[id$="_item"]');
             for (let i = 0, n = checkboxes.length; i < n; i++) {
@@ -29,17 +26,7 @@ if (empty($_SESSION['username'])) {
         function centang() {
             let total = document.querySelectorAll('[id$="_item"]:checked').length;
             document.getElementById("totalCentang").innerHTML = total;
-            document.getElementById("beli").innerHTML = "Beli ("+total+")";
-
-
-            // jumlahHarga = jumlahHarga + harga;
-
-            // var input = document.querySelectorAll('[id$="_item"]');
-            //     if (input[i].checked) {
-            //         jumlahHarga+=harga;
-            //     }
-            
-            // document.getElementById("totalHarga").innerHTML = "Rp. " + jumlahHarga;
+            document.getElementById("beli").innerHTML = "Beli (" + total + ")";
         }
     </script>
 </head>
@@ -75,7 +62,7 @@ if (empty($_SESSION['username'])) {
             <div class="row pt-5">
                 <div class="col-1">
                 </div>
-
+                <form action="keranjang_proses.php" method="post">
                 <div class="col-7">
                     <h3>Keranjang</h3>
                     <div class="form-check">
@@ -97,15 +84,13 @@ if (empty($_SESSION['username'])) {
                                     ON a.productid=c.productid where a.username='$username';";
 
                             $query    = mysqli_query($connect, $sql);
-                            // $jumlah = 0;
-                            // $sumharga = 0;
 
                             while ($data = mysqli_fetch_array($query)) {
                             ?>
 
                                 <div class="card border-light">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="<?= $data['keranjangid'] ?>" value="<?= $data['keranjangid'] ?>" onchange="centang()">
+                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="keranjang[]" value="<?= $data['keranjangid'] ?>" onchange="centang()">
                                         <label class="form-check-label" for="item">
                                             <h5><?= $data['name'] ?></h5>
                                         </label>
@@ -120,16 +105,13 @@ if (empty($_SESSION['username'])) {
                                             </div>
                                             <div class="d-flex gap-1">
                                                 <p> Catatan :</p>
-                                                <p style="text-decoration:none;"><?= $data['catatanorder'] ?><p>
+                                                <p style="text-decoration:none;"><?= $data['catatanorder'] ?>
+                                                <p>
                                             </div>
                                         </div>
 
                                         <div class="d-flex ps-3 justify-content-end">
-                                            <!-- <div id="catatan2" style="max-width: 30ch;">
-                                                <label for="catatan">Catatan</label>
-                                                <p class="form-control" id="catatan" aria-describedby="emailHelp">
-                                                    <?= $data['catatanorder'] ?></p>
-                                            </div> -->
+
                                             <div class="d-flex justify-content-center">
                                                 <button class="btn btn-default pt-0 pb-1 px-1">
                                                     <img src="img/sampah.svg" width="18px" class="pt-1 pb-1 mt-auto mb-auto" data-bs-toggle="modal" data-bs-target="#staticBackdroph<?= $data['keranjangid'] ?>">
@@ -193,8 +175,7 @@ if (empty($_SESSION['username'])) {
                                     </div>
                                 </div>
                             <?php
-                                // $jumlah++;
-                                // $sumharga = $sumharga + $data['total_harga'];
+
                             }
                             ?>
 
@@ -211,16 +192,11 @@ if (empty($_SESSION['username'])) {
                                         </div>
                                         </p>
                                         <hr>
-                                        <!-- <h5 class="card-text pb-2">
-                                            <div class="d-flex justify-content-between">
-                                                <div>Total Harga</div>
-                                                <label id="totalHarga">Rp. 0</label>
-                                            </div>
-                                        </h5> -->
-                                        <a href="#" class="btn btn-primary d-grid gap-2" style="background-color:#00A445;"><label id="beli">Beli (0)</label></a>
+                                        <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;"><label id="beli">Beli (0)</label></button>
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

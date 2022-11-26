@@ -19,4 +19,3 @@ foreach ($_POST['keranjang'] as $idkeranjang) {
     $hapus    = "DELETE from keranjang where keranjangid='$idkeranjang'";
     $query    = mysqli_query($connect, $hapus) or die(mysqli_error($connect));
 }
-?>

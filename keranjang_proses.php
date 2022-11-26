@@ -11,7 +11,8 @@ foreach ($_POST['keranjang'] as $idkeranjang) {
         $quantity = $data['quantity'];
         // $name = $data['name'];
         date_default_timezone_set('Asia/Jakarta');
-        $waktu = date('d-m-Y H:i:s');
+        $waktu = new DateTime();
+        $waktu->getTimestamp();
 
         $insert = "INSERT INTO orderstatus VALUES('', '$waktu', '$username', '$productid', '$total_harga', '$quantity', ' ')";
         $query1    = mysqli_query($connect, $insert) or die(mysqli_error($connect));
@@ -21,4 +22,3 @@ foreach ($_POST['keranjang'] as $idkeranjang) {
     $hapus    = "DELETE from keranjang where keranjangid='$idkeranjang'";
     $query    = mysqli_query($connect, $hapus) or die(mysqli_error($connect));
 }
-?>

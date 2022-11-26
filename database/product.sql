@@ -40,7 +40,6 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productid`, `name`, `price`, `foto`, `penjelasan`) VALUES
-(1, 'Auto Clave', 4000000, 'autoclave.jpg', 'Autoclave adalah salah satu alat laboratorium yang digunakan untuk mensterilkan alat-alat laboratorium'),
 (2, 'Automated Defibrillator', 2000000, 'automateddefibrillator.jpg', 'AED sendiri merupakan sebuah alat medis yang dapat menganalisis irama jantung '),
 (11, 'Face Mask', 50000, 'facemask.png', 'Alat medis yang menyediakan metode untuk mentransfer gas pernafasan oksigen'),
 (14, 'Blood Test Kit', 50000, 'blood.jpg', 'Untuk mengambil darah pada jari untuk pemeriksaan di laboratorium atau alat test darah.'),

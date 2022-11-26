@@ -84,7 +84,9 @@
                 <div class="card-body">
                   <h5 class="card-title"><?= $data['name']; ?></h5>
                   <h6 class="card-title">Rp. <?= number_format($data['price'], 0, "", ".") ?></h6>
-                  <p class="card-text"><?= $data['penjelasan']; ?></p>
+                  <div class="container py-2" style="height:140px;">
+                    <p class="card-text"><?= $data['penjelasan']; ?></p>
+                  </div>
                   <a href=index_admin_edit.php>
                     <button type="button" class="btn btn-primary pt-1 pb-1" style="background-color: #00A445; width: 80%;">
                       Masukkan Keranjang

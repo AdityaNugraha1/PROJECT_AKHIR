@@ -20,17 +20,19 @@
                     <div class="mx-auto d-block pb-5" style="width:60%;">
                         <img src="asset/logo.png" class="rounded img-fluid" alt="medical device">
                     </div>
-                    <?php
-                    if (isset($_GET['message'])) {
-                        if ($_GET['message'] == "failed") {
-                            echo "login failed! Username atau password salah.";
-                        } elseif ($_GET['message'] == "logout") {
-                            echo "Anda telah berhasil logout";
-                        } elseif ($_GET['message'] == "belum_login") {
-                            echo "Anda belum_login";
+                    <div class="text-center pb-1 fw-bold" style="color:red;">
+                        <?php
+                        if (isset($_GET['message'])) {
+                            if ($_GET['message'] == "failed") {
+                                echo "login failed! Username atau password salah.";
+                            } elseif ($_GET['message'] == "logout") {
+                                echo "Anda telah berhasil logout";
+                            } elseif ($_GET['message'] == "belum_login") {
+                                echo "Anda belum login, masukan username dan password";
+                            }
                         }
-                    }
-                    ?>
+                        ?>
+                    </div>
                     <form method="POST" action="login_proses.php">
                         <!-- Email input -->
                         <div class="form-outline mb-2 mt-2">

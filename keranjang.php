@@ -26,7 +26,6 @@ if (empty($_SESSION['username'])) {
         function centang() {
             let total = document.querySelectorAll('[id$="_item"]:checked').length;
             document.getElementById("totalCentang").innerHTML = total;
-            document.getElementById("beli").innerHTML = "Beli (" + total + ")";
         }
     </script>
 </head>
@@ -192,7 +191,7 @@ if (empty($_SESSION['username'])) {
                                         </div>
                                         </p>
                                         <hr>
-                                        <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;"><label id="beli">Beli (0)</label></button>
+                                        <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button>
                                     </div>
                                 </div>
                             </div>

@@ -203,11 +203,11 @@ if (empty($_SESSION['username'])) {
                                 </h5>
                                 <form action="keranjang_proses.php" method="post">
                                     <?php
-                                    $query    = mysqli_query($connect, $sql);
-                                    while ($data = mysqli_fetch_array($query)) {
+                                    $query1    = mysqli_query($connect, $sql);
+                                    while ($data1 = mysqli_fetch_array($query1)) {
                                     ?>
-                                        <input type="hidden" name="keranjang[]" value="<?= $data['keranjangid'] ?>">
-                                        <input type="hidden" name="name[]" value="<?= $data['name'] ?>">
+                                        <input type="hidden" name="keranjang[]" value="<?= $data1['keranjangid'] ?>">
+                                        <input type="hidden" name="name[]" value="<?= $data1['name'] ?>">
 
                                     <?php } ?>
                                     <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button>

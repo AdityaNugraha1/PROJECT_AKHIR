@@ -15,7 +15,7 @@ if (empty($_SESSION['username'])) {
     <title>Keranjang </title>
     <link rel="stylesheet" href="style/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script>
+    <!-- <script>
         function toggle(source) {
             checkboxes = document.querySelectorAll('[id$="_item"]');
             for (let i = 0, n = checkboxes.length; i < n; i++) {
@@ -26,7 +26,7 @@ if (empty($_SESSION['username'])) {
         function centang() {
             let total = document.querySelectorAll('[id$="_item"]:checked').length;
             document.getElementById("totalCentang").innerHTML = total;
-        }
+        } -->
     </script>
 </head>
 
@@ -44,7 +44,7 @@ if (empty($_SESSION['username'])) {
                         <a class="nav-link text-white" href="index_login.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white " href="#produk">Produk</a>
+                        <a class="nav-link text-white " href="index_login.php#produk">Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white " href="keranjang.php">Keranjang</a>
@@ -61,15 +61,15 @@ if (empty($_SESSION['username'])) {
             <div class="row pt-5">
                 <div class="col-1">
                 </div>
-                <form action="keranjang_proses.php" method="post">
+                <!-- <form action="keranjang_proses.php" method="post"> -->
                 <div class="col-7">
                     <h3>Keranjang</h3>
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                         <input class="form-check-input" type="checkbox" id="cekPilih" onClick="toggle(this)" onchange="centang(0)">
                         <label class="form-check-label" for="cekPilih">
                             Pilih Semua
                         </label>
-                    </div>
+                    </div> -->
 
                     <div class="card">
                         <div class="card-body">
@@ -83,13 +83,14 @@ if (empty($_SESSION['username'])) {
                                     ON a.productid=c.productid where a.username='$username';";
 
                             $query    = mysqli_query($connect, $sql);
-
+                            $jumlah = 0;
+                            $totalharga = 0;
                             while ($data = mysqli_fetch_array($query)) {
                             ?>
 
                                 <div class="card border-light">
                                     <div class="card-body">
-                                        <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="keranjang[]" value="<?= $data['keranjangid'] ?>" onchange="centang()">
+                                        <!-- <input class="form-check-input" type="checkbox" id="<?= $data['keranjangid'] ?>_item" name="keranjang[]" value="<?= $data['keranjangid'] ?>" onchange="centang()"> -->
                                         <label class="form-check-label" for="item">
                                             <h5><?= $data['name'] ?></h5>
                                         </label>
@@ -174,7 +175,8 @@ if (empty($_SESSION['username'])) {
                                     </div>
                                 </div>
                             <?php
-
+                            $jumlah++;
+                            $totalharga=$totalharga+$data['total_harga'];
                             }
                             ?>
 
@@ -186,16 +188,27 @@ if (empty($_SESSION['username'])) {
                                         <h5 class="card-title">Ringkasan Belanja</h5>
                                         <p class="card-text">
                                         <div class="d-flex justify-content-between">
-                                            Total Barang
-                                            <label id="totalCentang">0</label>
+                                        <div>Total Harga (<?= $jumlah ?> barang)</div>
+                                        <div><?= number_format($totalharga,0,"",".") ?></div>
                                         </div>
                                         </p>
                                         <hr>
-                                        <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button>
+                                        <h5 class="card-text pb-2">
+                                            <div class="d-flex justify-content-between">
+                                                <div>Total Harga</div>
+                                                <div><?= number_format($totalharga,0,"",".") ?></div>
+                                            </div>
+                                        </h5>
+                                        <form action="keranjang_proses.php" method="post">
+                                        <?php while ($data = mysqli_fetch_array($query)) {
+                                         ?>
+                                         <input type="hidden" name="keranjang[]" value="<?= $data['keranjangid'] ?>">
+                                         <?php } ?>
+                                        <button type="submit" class="btn btn-primary d-grid gap-2" style="background-color:#00A445; width:100%;">Beli</button></form>
                                     </div>
                                 </div>
                             </div>
-                            </form>
+                            
                         </div>
                     </div>
                 </div>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2022 at 03:56 PM
+-- Generation Time: Nov 28, 2022 at 02:17 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.10
 
@@ -36,13 +36,6 @@ CREATE TABLE `keranjang` (
   `catatanorder` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `keranjang`
---
-
-INSERT INTO `keranjang` (`keranjangid`, `username`, `total_harga`, `productid`, `quantity`, `catatanorder`) VALUES
-(1, 'andra', 8000000, 1, 2, 'bang');
-
 -- --------------------------------------------------------
 
 --
@@ -51,9 +44,17 @@ INSERT INTO `keranjang` (`keranjangid`, `username`, `total_harga`, `productid`, 
 
 CREATE TABLE `orderstatus` (
   `orderstatusid` int(11) NOT NULL,
-  `keranjangid` int(11) NOT NULL,
-  `status` varchar(10) NOT NULL
+  `waktu` datetime NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `total_harga` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orderstatus`
+--
+
+INSERT INTO `orderstatus` (`orderstatusid`, `waktu`, `username`, `total_harga`) VALUES
+(1, '2022-11-26 16:33:20', 'andra', 2000369);
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,7 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`productid`, `name`, `price`, `foto`, `penjelasan`) VALUES
-(1, 'Auto Clave', 4000000, 'autoclave.jpg', 'Autoclave adalah salah satu alat laboratorium yang digunakan untuk mensterilkan alat-alat laboratorium se'),
+(1, 'tes', 123, 'facemask.png', 'adit bab'),
 (2, 'Automated Defibrillator', 2000000, 'automateddefibrillator.jpg', 'AED sendiri merupakan sebuah alat medis yang dapat menganalisis irama jantung secara otomatis dan memberi');
 
 -- --------------------------------------------------------
@@ -119,7 +120,7 @@ ALTER TABLE `keranjang`
 --
 ALTER TABLE `orderstatus`
   ADD PRIMARY KEY (`orderstatusid`),
-  ADD KEY `orderstatus_ibfk_1` (`keranjangid`);
+  ADD KEY `username` (`username`);
 
 --
 -- Indexes for table `product`
@@ -141,13 +142,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `keranjang`
 --
 ALTER TABLE `keranjang`
-  MODIFY `keranjangid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `keranjangid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `orderstatus`
 --
 ALTER TABLE `orderstatus`
-  MODIFY `orderstatusid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderstatusid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `product`
@@ -170,7 +171,7 @@ ALTER TABLE `keranjang`
 -- Constraints for table `orderstatus`
 --
 ALTER TABLE `orderstatus`
-  ADD CONSTRAINT `orderstatus_ibfk_1` FOREIGN KEY (`keranjangid`) REFERENCES `keranjang` (`keranjangid`);
+  ADD CONSTRAINT `orderstatus_ibfk_1` FOREIGN KEY (`username`) REFERENCES `user` (`username`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
